@@ -20,10 +20,13 @@ pip install neomodel
 ~~~
 
 ### Django common command lines
+
+When you make changes to your models, your database needs to understand how these changes might affect the database. This command automatically makes files that document these changes.
 ~~~
-python manage.py makemigrations # When you make changes to your models, your database needs to understand how these changes might affect the database. This command automatically makes files that document these changes.
+python manage.py makemigrations
 ~~~
 
+This command you'll probably run the most of all commands. It means to run a emulated server on your local computer.
 ~~~
-python manage.py runserver # This command you'll probably run the most of all commands. It means to run a emulated server on your local computer.
+python manage.py runserver
 ~~~

@@ -5,12 +5,6 @@ from rest_framework.decorators import api_view
 from dataprocservice.models import Construct
 from dataprocservice.api.serializers import ConstructSerializer
 
-SUCCESS = 'success'
-ERROR = 'error'
-DELETE_SUCCESS = 'deleted'
-UPDATE_SUCCESS = 'updated'
-CREATE_SUCCESS = 'created'
-
 @api_view(['GET', ])
 def api_detail_construct_view(request, slug):
 
@@ -37,7 +31,7 @@ def api_update_construct_view(request, slug):
 		data = {}
 		if serializer.is_valid():
 			serializer.save()
-			data['SUCCESS'] = UPDATE_SUCCESS
+			data['SUCCESS'] = 'updated'
 			return Response(data=data)
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -54,7 +48,7 @@ def api_delete_construct_view(request, slug):
 		operation = construct.delete()
 		data = {}
 		if operation:
-			data['SUCCESS'] = DELETE_SUCCESS
+			data['SUCCESS'] = 'deleted'
 		return Response(data=data)
 
 

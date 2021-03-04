@@ -1,6 +1,6 @@
 ### Clone the repository
 git clone https://git.embl.de/yelmoubayed/new-dp-service.git    
-cd <repository>
+cd **repository**
 
 ### Create a virtual environment to isolate our package dependencies locally
 ~~~

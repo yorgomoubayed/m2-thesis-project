@@ -1,4 +1,4 @@
-REST API created using Djano, Neo4j and Neomodel.
+REST API created using Django, Neo4j and Neomodel.
 
 ### Clone the repository
 ~~~

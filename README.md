@@ -1,12 +1,12 @@
 REST API created using Django, Neo4j and Neomodel.
 
-### Clone the repository
+## Clone the repository
 ~~~
 git clone https://git.embl.de/yelmoubayed/new-dp-service.git    
 cd <repository>
 ~~~
 
-### Create a virtual environment to isolate the package dependencies locally
+## Create a virtual environment to isolate the package dependencies locally
 ~~~
 python3 -m venv env 
 ~~~
@@ -17,17 +17,17 @@ source env/bin/activate #On Linux and MacOS
 env\Scripts\activate #On Windows    
 ~~~
 
-### Install requirements
+## Install requirements
 ~~~
 pip install -r requirements.txt
 ~~~
 
-### To add new requirements if needed 
+## To add new requirements if needed 
 ~~~
 pip freeze > requirements.txt
 ~~~
 
-### Django common command lines
+## Django common command lines
 
 #### Create constraintes
 ~~~

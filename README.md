@@ -1,3 +1,5 @@
+REST API created using Djano, Neo4j and Neomodel.
+
 ### Clone the repository
 ~~~
 git clone https://git.embl.de/yelmoubayed/new-dp-service.git    

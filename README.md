@@ -29,7 +29,7 @@ pip freeze > requirements.txt
 
 ## Django common command lines
 
-#### Create constraintes
+#### Create constraints
 ~~~
 python manage.py install_labels 
 ~~~

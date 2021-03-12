@@ -22,7 +22,7 @@ env\Scripts\activate #On Windows
 pip install -r requirements.txt
 ~~~
 
-## To add new requirements if needed 
+## Add new requirements if needed 
 ~~~
 pip freeze > requirements.txt
 ~~~

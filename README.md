@@ -41,11 +41,7 @@ python manage.py makemigrations
 ~~~
 
 #### Run API server
-<<<<<<< HEAD
-You'll run this the most. It means to run a emulated server on your local computer.
-=======
 You'll run this the most of all commands. It means to run a emulated server on your local computer.
->>>>>>> 257a6b76e0c2467ef746618881f0931d43992968
 ~~~
 python manage.py runserver
 ~~~

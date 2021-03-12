@@ -1,7 +1,9 @@
 # from django.http import JsonResponse
-# from api.models import *
 # from django.views.decorators.csrf import csrf_exempt
 # import json
+
+# from api.models import *
+
 
 # @csrf_exempt
 # def connectConstructUser(request):

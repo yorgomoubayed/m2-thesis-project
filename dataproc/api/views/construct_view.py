@@ -24,7 +24,7 @@ def indexConstruct(request):
             response=[]
             for construct in constructs :
                 obj= {
-                    "uid": construct.uid,
+                    "uuid": construct.uuid,
                     "name": construct.name,
                 }
                 response.append(obj)
@@ -43,7 +43,7 @@ def showConstruct(request):
         name=request.GET.get('name', ' ')
         try:
             construct=Construct.nodes.get(name=name)
-            return JsonResponse({"uid": construct.uid, "name": construct.name}, safe=False)
+            return JsonResponse({"uuid": construct.uuid, "name": construct.name}, safe=False)
         except :
             return JsonResponse({"error":"Error occurred"}, safe=False)
 
@@ -60,7 +60,7 @@ def storeConstruct(request):
         try:
             construct=Construct(name=name)
             construct.save()
-            return JsonResponse({"uid": construct.uid})
+            return JsonResponse({"uuid": construct.uuid})
         except :
             return JsonResponse({"error":"Error occurred"}, safe=False)
 
@@ -74,12 +74,12 @@ def updateConstruct(request):
     if request.method=='PUT':
         json_data=json.loads(request.body)
         name=json_data['name']
-        uid=json_data['uid']
+        uuid=json_data['uuid']
         try:
-            construct=Construct.nodes.get(uid=uid)
+            construct=Construct.nodes.get(uuid=uuid)
             construct.name=name
             construct.save()
-            return JsonResponse({"uid": construct.uid, "name": name}, safe=False)
+            return JsonResponse({"uuid": construct.uuid, "name": name}, safe=False)
         except:
             return JsonResponse({"error":"Error occurred"}, safe=False)
 
@@ -87,14 +87,14 @@ def updateConstruct(request):
 def destroyConstruct(request):
 
     """
-    Delete one construct by uid
+    Delete one construct by uuid
     """
 
     if request.method=='DELETE':
         json_data=json.loads(request.body)
-        uid=json_data['uid']
+        uuid=json_data['uuid']
         try:
-            construct=Construct.nodes.get(uid=uid)
+            construct=Construct.nodes.get(uuid=uuid)
             construct.delete()
             return JsonResponse({"success": "Construct deleted"}, safe=False)
         except:

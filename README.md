@@ -50,3 +50,9 @@ python manage.py runserver
 ~~~
 python manage.py shell
 ~~~
+
+## Links to official documentations
+
+* Django: <https://docs.djangoproject.com/en/3.1/>
+* Neomodel: <https://neomodel.readthedocs.io/en/latest/>
+* Neo4j: <https://neo4j.com/docs/>

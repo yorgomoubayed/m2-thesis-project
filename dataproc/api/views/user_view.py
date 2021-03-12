@@ -20,7 +20,7 @@ def indexUser(request):
 
     if request.method=='GET':
         try:
-            users=User.nodes.all()
+            users=User.nodes.all(lazy=False)
             response=[]
             for user in users :
                 obj= {
@@ -43,7 +43,8 @@ def showUser(request):
         name=request.GET.get('name', ' ')
         try:
             user=User.nodes.get(name=name)
-            return JsonResponse({"uid": user.uid, "name": user.name}, safe=False)
+            # return JsonResponse({"uid": user.uid, "name": user.name}, safe=False)
+            return JsonResponse({user}, safe=False)
         except :
             return JsonResponse({"error":"Error occurred"}, safe=False)
 

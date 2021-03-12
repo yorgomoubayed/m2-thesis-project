@@ -1,5 +1,4 @@
 from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
-from uuid import uuid4
 
 # from api.models.ocf_model import OCF
 # from api.models.storagehost_model import StorageHost
@@ -8,7 +7,7 @@ from uuid import uuid4
 
 class Construct(StructuredNode):
 	
-	uid=UniqueIdProperty(default=uuid4)
+	uuid=UniqueIdProperty()
 	name=StringProperty()
 	
 	# Relationships

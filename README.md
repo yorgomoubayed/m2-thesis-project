@@ -6,7 +6,7 @@ git clone https://git.embl.de/yelmoubayed/new-dp-service.git
 cd <repository>
 ~~~
 
-### Create a virtual environment to isolate our package dependencies locally
+### Create a virtual environment to isolate the package dependencies locally
 ~~~
 python3 -m venv env 
 ~~~
@@ -41,7 +41,7 @@ python manage.py makemigrations
 ~~~
 
 #### Run API server
-This command you'll probably run the most of all commands. It means to run a emulated server on your local computer.
+You'll run this the most of all commands. It means to run a emulated server on your local computer.
 ~~~
 python manage.py runserver
 ~~~

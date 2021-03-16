@@ -20,11 +20,11 @@ def indexUser(request):
 
     if request.method=='GET':
         try:
-            users=User.nodes.all(lazy=False)
+            users=User.nodes.all()
             response=[]
             for user in users :
                 obj= {
-                    "uid": user.uid,
+                    "uuid": user.uuid,
                     "name": user.name,
                 }
                 response.append(obj)
@@ -43,8 +43,8 @@ def showUser(request):
         name=request.GET.get('name', ' ')
         try:
             user=User.nodes.get(name=name)
-            # return JsonResponse({"uid": user.uid, "name": user.name}, safe=False)
-            return JsonResponse({user}, safe=False)
+            return JsonResponse({"uuid": user.uuid, "name": user.name}, safe=False)
+            # return JsonResponse({user}, safe=False)
         except :
             return JsonResponse({"error":"Error occurred"}, safe=False)
 
@@ -61,7 +61,7 @@ def storeUser(request):
         try:
             user=User(name=name)
             user.save()
-            return JsonResponse({"uid": user.uid})
+            return JsonResponse({"uuid": user.uuid})
         except :
             return JsonResponse({"error":"Error occurred"}, safe=False)
 
@@ -75,12 +75,12 @@ def updateUser(request):
     if request.method=='PUT':
         json_data=json.loads(request.body)
         name=json_data['name']
-        uid=json_data['uid']
+        uuid=json_data['uuid']
         try:
-            user=User.nodes.get(uid=uid)
+            user=User.nodes.get(uuid=uuid)
             user.name=name
             user.save()
-            return JsonResponse({"uid": user.uid, "name": name}, safe=False)
+            return JsonResponse({"uuid": user.uuid, "name": name}, safe=False)
         except:
             return JsonResponse({"error":"Error occurred"}, safe=False)
 
@@ -88,14 +88,14 @@ def updateUser(request):
 def destroyUser(request):
 
     """
-    Delete one user by uid
+    Delete one user by uuid
     """
 
     if request.method=='DELETE':
         json_data=json.loads(request.body)
-        uid=json_data['uid']
+        uuid=json_data['uuid']
         try:
-            user=User.nodes.get(uid=uid)
+            user=User.nodes.get(uuid=uuid)
             user.delete()
             return JsonResponse({"success": "User deleted"}, safe=False)
         except:

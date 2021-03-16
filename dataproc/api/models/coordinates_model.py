@@ -7,8 +7,8 @@ from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdPro
 
 class Coordinates(StructuredNode):
  	coordinates_source=StringProperty(unique_index=True, required=True)
- 	coordinates_filesize=StringProperty(unique_index=True, required=True)
- 	coordinates_filepath=StringProperty(unique_index=True, required=True)
+ 	coordinates_filesize=StringProperty()
+ 	coordinates_filepath=StringProperty()
 
  	# Relationships
  	input_as_ref=RelationshipTo('api.models.dpstep_model.DPStep', 'INPUT_AS_REFERENCE')

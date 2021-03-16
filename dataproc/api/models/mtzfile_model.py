@@ -1,5 +1,6 @@
 from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
+from uuid import uuid4
 
 class MTZfile(StructuredNode):
-	uid=UniqueIdProperty()
-	rsf_filetype = StringProperty(unique_index=True, required=True)
+	uuid=StringProperty(unique_index=True, default=uuid4)
+	rsf_filetype = StringProperty()

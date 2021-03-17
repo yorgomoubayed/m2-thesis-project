@@ -2,7 +2,6 @@ from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdPro
 from uuid import uuid4
 
 class User(StructuredNode):
-	# uuid=UniqueIdProperty()
 	uuid=StringProperty(unique_index=True, default=uuid4)
 	name=StringProperty()
 	surname=StringProperty()

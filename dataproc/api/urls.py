@@ -1,6 +1,5 @@
 """
-api application's URL configuration
-urlpatterns list routes URLs to views
+api application's URL configuration. "urlpatterns" lists routes URLs to views.
 """
 
 # Import django libraries
@@ -34,6 +33,7 @@ from api.views.storagehost_view import *
 from api.views.summaryhtml_view import *
 from api.views.summaryout_view import *
 from api.views.user_view import *
+from api.views.relationships_view import *
 
 # Define url patterns
 
@@ -228,6 +228,6 @@ urlpatterns = [
     path('updateUser', updateUser),
     path('destroyUser', destroyUser),
 
-    # path('connectConstructUser', connectConstructUser),
+    # relationships urlspatterns
+    path('connectConstructUser', connectConstructUser),
 ]
-

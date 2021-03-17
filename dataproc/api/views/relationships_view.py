@@ -1,36 +1,32 @@
-# from django.http import JsonResponse
-# from django.views.decorators.csrf import csrf_exempt
-# import json
+"""
+api application controllers to create relationships between the nodes
+"""
 
-# from api.models import *
+# Import python and django libraries
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
+# Import models
+from api.models import *
 
-# @csrf_exempt
-# def connectConstructUser(request):
-#     if request.method == 'PUT':
-#         json_data = json.loads(request.body)
-#         uid = json_data['uid']
-#             construct = Construct.nodes.get(uid=uid)
-#             user = User.nodes.get(code=code)
-#             res = construct.user.connect(user)
-#             response = {"result": res}
-#             return JsonResponse(response, safe=False)
-#         except:
-#             response = {"error": "Error occurred"}
-#             return JsonResponse(response, safe=False)
+# Define CRUD methods
+@csrf_exempt
+def connectConstructUser(request):
 
-# @csrf_exempt
-# def connectPaP(request):
-#     if request.method == 'PUT':
-#         json_data = json.loads(request.body)
-#         uid1 = json_data['uid1']
-#         uid2 = json_data['uid2']
-#         try:
-#             person1 = Person.nodes.get(uid=uid1)
-#             person2 = Person.nodes.get(uid=uid2)
-#             res = person1.friends.connect(person2)
-#             response = {"result": res}
-#             return JsonResponse(response, safe=False)
-#         except:
-#             response = {"error": "Error occurred"}
-#             return JsonResponse(response, safe=False)
+	"""
+	Create a relationship between a construct and a user
+	"""
+
+	if request.method=="PUT":
+		json_data=json.loads(request.body)
+		uuid=json_data["uuid"]
+		name=json_data["name"]
+
+		try:
+			construct=Construct.nodes.get(name=name)
+			user=User.nodes.get(uuid=uuid)
+			return JsonResponse({"Status": construct.has_user.connect(user)}, safe=False)
+
+		except:
+			return JsonResponse({"Error": "error occurred"}, safe=False)

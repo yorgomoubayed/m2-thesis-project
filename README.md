@@ -1,4 +1,4 @@
-REST API created using Django, Neo4j and Neomodel.
+REST API prototype created using Django, Neo4j, Neomodel and Django REST Framework (DRF).
 
 ## Clone the repository
 ~~~

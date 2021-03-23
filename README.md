@@ -56,3 +56,4 @@ python manage.py shell
 * Django: <https://docs.djangoproject.com/en/3.1/>
 * Neomodel: <https://neomodel.readthedocs.io/en/latest/>
 * Neo4j: <https://neo4j.com/docs/>
+* DRF: <https://www.django-rest-framework.org/>

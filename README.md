@@ -27,28 +27,52 @@ pip install -r requirements.txt
 pip freeze > requirements.txt
 ~~~
 
-## Django common command lines
+## Django's most important command lines
 
-#### Create constraints
+This command is used to create a project
 ~~~
-python manage.py install_labels 
+django-admin startproject <project name>
+django-admin.py startproject <project name>
 ~~~
 
-#### Track models changes
-When you make changes to your models, your database needs to understand how these changes might affect the database. This command automatically makes files that document these changes.
+This command is used to create an application inside a project
+~~~
+python manage.py <app name>
+~~~
+
+This command applies migrations
+~~~
+python manage.py migrate
+~~~
+
+This command creates new migrations based on the changes you have made to your models
 ~~~
 python manage.py makemigrations
 ~~~
 
-#### Run API server
-You'll run this the most of all commands. It means to run a emulated server on your local computer.
-~~~
-python manage.py runserver
-~~~
-
-#### Open Django's Python shell
+This command opens a python shell to test query sets
 ~~~
 python manage.py shell
+~~~
+
+This command runs an emulated server on your local machine
+~~~
+python manage.py runserver <optional port number>
+~~~
+
+This command creates a super user to access the admin panel
+~~~
+python manage.py createsuperuser
+~~~
+
+This command creates a cache table 
+~~~
+python manage.py createcachetable
+~~~
+
+This command applies neomodel constraints
+~~~
+python manage.py install_labels 
 ~~~
 
 ## Links to official documentations

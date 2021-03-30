@@ -5,3 +5,13 @@ class User(StructuredNode):
 	uuid=StringProperty(unique_index=True, default=uuid4)
 	name=StringProperty()
 	surname=StringProperty()
+
+	@property
+	def serialize(self):
+	    return {
+	        'node_properties': {
+	            'uuid': self.uuid,
+	            'username': self.username,
+	        },
+	    }
+

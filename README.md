@@ -81,3 +81,4 @@ python manage.py install_labels
 * Neomodel: <https://neomodel.readthedocs.io/en/latest/>
 * Neo4j: <https://neo4j.com/docs/>
 * DRF: <https://www.django-rest-framework.org/>
+* Serializing neomodel data tutorial: <https://neo4j-examples.github.io/paradise-papers-django/tutorial/part01.html>

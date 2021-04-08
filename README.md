@@ -77,8 +77,8 @@ python manage.py install_labels
 
 ## Links to official documentations
 
-* Django: <https://docs.djangoproject.com/en/3.1/>
-* Neomodel: <https://neomodel.readthedocs.io/en/latest/>
-* Neo4j: <https://neo4j.com/docs/>
-* DRF: <https://www.django-rest-framework.org/>, DRF/serializers: <https://www.django-rest-framework.org/api-guide/serializers/>
-* Serializing neomodel data tutorial: <https://neo4j-examples.github.io/paradise-papers-django/tutorial/part01.html>
+* **Django:** <https://docs.djangoproject.com/en/3.1/>
+* **Neomodel:** <https://neomodel.readthedocs.io/en/latest/>
+* **Neo4j:** <https://neo4j.com/docs/>
+* **DRF:** <https://www.django-rest-framework.org/>, **DRF/serializers:** <https://www.django-rest-framework.org/api-guide/serializers/>
+* **Serializing neomodel data tutorial:** <https://neo4j-examples.github.io/paradise-papers-django/tutorial/part01.html>

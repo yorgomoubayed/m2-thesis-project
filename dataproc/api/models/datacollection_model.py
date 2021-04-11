@@ -8,3 +8,17 @@ class DataCollection (StructuredNode):
 
  	# Relationships
  	genereates_dataset=RelationshipTo(Datatset, 'GENERATES')
+
+ 	@property
+ 	def serialize(self):
+
+ 		"""
+ 		Serializer for node properties
+ 		"""
+ 		
+ 	    return {
+ 	        'node_properties': {
+ 	            'collection_type': self.collection_type,
+ 	            'collection_size': self.collection_size,
+ 	        },
+ 	    }

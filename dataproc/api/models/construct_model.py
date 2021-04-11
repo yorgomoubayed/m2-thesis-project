@@ -1,6 +1,5 @@
 from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
 from uuid import uuid4
-from api.models.nodeutils import NodeUtils
 
 # from api.models.ocf_model import OCF
 # from api.models.storagehost_model import StorageHost

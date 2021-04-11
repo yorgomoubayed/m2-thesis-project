@@ -19,3 +19,18 @@ class RefelctionStructureFactors(StructuredNode):
  	generates_scalepack=RelationshipTo('ScalepackFile', 'GENERATES')
  	labelled=RelationshipTo('Reference', 'LABELLED')
  	belongs=RelationshipTo('Construct', 'BELONGS')
+
+ 	@property
+ 	def serialize(self):
+
+ 		"""
+ 		Serializer for node properties
+ 		"""
+ 		
+ 	    return {
+ 	        'node_properties': {
+ 	            'rsf_source': self.rsf_source,
+ 	            'rsf_filesize': self.rsf_filesize,
+ 	            'rsf_filepath': self.rsf_filepath,
+ 	        },
+ 	    }

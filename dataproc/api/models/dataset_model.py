@@ -13,3 +13,18 @@ class Datatset(StructuredNode):
  	input_of=RelationshipTo(DPStep, 'INPUT')
  	stored=RelationshipTo(StorageHost, 'STORED')
  	belongs=RelationshipTo(Construct, 'BELONGS')
+
+ 	@property
+ 	def serialize(self):
+
+ 		"""
+ 		Serializer for node properties
+ 		"""
+ 		
+ 	    return {
+ 	        'node_properties': {
+ 	            'dataset_file_no': self.dataset_file_no,
+ 	            'dataset_size': self.dataset_size,
+ 	        },
+ 	    }
+

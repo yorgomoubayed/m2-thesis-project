@@ -17,3 +17,19 @@ class Coordinates(StructuredNode):
  	has_mmcif=RelationshipTo('api.models.mmciffile_model.mmCIFFile', 'HAS')
  	belongs=RelationshipTo('api.models.construct_model.Construct', 'BELONGS')
  	labelled=RelationshipTo('api.models.reference_model.Reference', 'LABELLED')
+
+
+ 	@property
+	def serialize(self):
+
+		"""
+		Serializer for node properties
+		"""
+		
+	    return {
+	        'node_properties': {
+	            'coordinates_source': self.coordinates_source,
+	            'coordinates_filesize': self.coordinates_filesize,
+	            'coordinates_filepath': self.coordinates_filepath,
+	        },
+	    }

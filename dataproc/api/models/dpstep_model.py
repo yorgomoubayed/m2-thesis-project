@@ -29,7 +29,19 @@ class DPStep(StructuredNode):
  	generates_coordinates=RelationshipTo(Coordinates, 'GENERATES')
  	generates_rsf=RelationshipTo(RefelctionStructureFactors, 'GENERATES')
 
+ 	@property
+ 	def serialize(self):
 
+ 		"""
+ 		Serializer for node properties
+ 		"""
+ 		
+ 	    return {
+ 	        'node_properties': {
+ 	            # 'uuid': self.uuid,
+ 	            # 'tool_name': self.name,
+ 	        },
+ 	    }
 # class Coordinates(StructuredNode):
 #  	coordinates_source=StringProperty(unique_index=True, required=True)
 #  	coordinates_filesize=StringProperty(unique_index=True, required=True)

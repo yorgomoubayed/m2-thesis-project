@@ -23,11 +23,8 @@ def indexUser(request):
             users=User.nodes.all()
             response=[]
             for user in users :
-                obj= {
-                    "uuid": user.uuid,
-                    "name": user.name,
-                }
-                response.append(obj)
+                node=user.serialize
+                response.append(node)
             return JsonResponse(response, safe=False)
         except:
             return JsonResponse({"error": "Error occurred"}, safe=False)
@@ -43,8 +40,7 @@ def showUser(request):
         name=request.GET.get('name', ' ')
         try:
             user=User.nodes.get(name=name)
-            return JsonResponse({"uuid": user.uuid, "name": user.name}, safe=False)
-            # return JsonResponse({user}, safe=False)
+            return JsonResponse(user.serialize, safe=False)
         except :
             return JsonResponse({"error":"Error occurred"}, safe=False)
 
@@ -61,7 +57,7 @@ def storeUser(request):
         try:
             user=User(name=name)
             user.save()
-            return JsonResponse({"uuid": user.uuid})
+            return JsonResponse(user.serialize)
         except :
             return JsonResponse({"error":"Error occurred"}, safe=False)
 
@@ -80,7 +76,7 @@ def updateUser(request):
             user=User.nodes.get(uuid=uuid)
             user.name=name
             user.save()
-            return JsonResponse({"uuid": user.uuid, "name": name}, safe=False)
+            return JsonResponse(user.serialize, safe=False)
         except:
             return JsonResponse({"error":"Error occurred"}, safe=False)
 

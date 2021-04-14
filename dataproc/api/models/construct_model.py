@@ -26,23 +26,23 @@ class Construct(StructuredNode):
 	        },
 	    }
 
-	@property
-	def serialize_connections(self):
-	    return [
-	        {
-	            'nodes_type': 'OCF',
-	            'nodes_related': self.serialize_relationships(self.ocf.all()),
-	        },
-	        {
-	            'nodes_type': 'StorageHost',
-	            'nodes_related': self.serialize_relationships(self.storagehost.all()),
-	        },
-	        {
-	            'nodes_type': 'ComputingHost',
-	            'nodes_related': self.serialize_relationships(self.computinghost.all()),
-	        },
-	        {
-	            'nodes_type': 'User',
-	            'nodes_related': self.serialize_relationships(self.user.all()),
-	        },
-	    ]
+	# @property
+	# def serialize_connections(self):
+	#     return [
+	#         {
+	#             'nodes_type': 'OCF',
+	#             'nodes_related': self.serialize_relationships(self.ocf.all()),
+	#         },
+	#         {
+	#             'nodes_type': 'StorageHost',
+	#             'nodes_related': self.serialize_relationships(self.storagehost.all()),
+	#         },
+	#         {
+	#             'nodes_type': 'ComputingHost',
+	#             'nodes_related': self.serialize_relationships(self.computinghost.all()),
+	#         },
+	#         {
+	#             'nodes_type': 'User',
+	#             'nodes_related': self.serialize_relationships(self.user.all()),
+	#         },
+	#     ]

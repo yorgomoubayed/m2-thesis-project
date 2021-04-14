@@ -4,3 +4,17 @@ from uuid import uuid4
 class PDBFile(StructuredNode):
 	uuid=StringProperty(unique_index=True, default=uuid4)
 	coordinates_filetype=StringProperty()
+
+	@property
+	def serialize(self):
+
+		"""
+		Serializer for node properties
+		"""
+		
+	    return {
+	        'node_properties': {
+	            'uuid': self.uuid,
+	            'coordinates_filetype': self.coordinates_filetype,
+	        },
+	    }

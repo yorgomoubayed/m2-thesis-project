@@ -53,12 +53,12 @@ urlpatterns = [
     # path('updateBuster', updateBuster),
     # path('destroyBuster', destroyBuster),
 
-    # # computinghost urlpatterns
-    # path('indexComputinghost', indexComputinghost),
-    # path('showComputinghost', showComputinghost),
-    # path('storeComputinghost', storeComputinghost),
-    # path('updateComputinghost', updateComputinghost),
-    # path('destroyComputinghost', destroyComputinghost),
+    # computinghost urlpatterns
+    path('indexComputinghost', indexComputinghost),
+    path('showComputinghost', showComputinghost),
+    path('storeComputinghost', storeComputinghost),
+    path('updateComputinghost', updateComputinghost),
+    path('destroyComputinghost', destroyComputinghost),
 
     # construct urlpatterns
     path('indexConstruct', indexConstruct),

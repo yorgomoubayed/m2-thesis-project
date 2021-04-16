@@ -200,12 +200,12 @@ urlpatterns = [
     # path('updateStatisticalreport', updateStatisticalreport),
     # path('destroyStatisticalreport', destroyStatisticalreport),
 
-    # # storagehost urlpatterns
-    # path('indexStoragehost', indexStoragehost),
-    # path('showStoragehost', showStoragehost),
-    # path('storeStoragehost', storeStoragehost),
-    # path('updateStoragehost', updateStoragehost),
-    # path('destroyStoragehost', destroyStoragehost),
+    # storagehost urlpatterns
+    path('indexStoragehost', indexStoragehost),
+    path('showStoragehost', showStoragehost),
+    path('storeStoragehost', storeStoragehost),
+    path('updateStoragehost', updateStoragehost),
+    path('destroyStoragehost', destroyStoragehost),
 
     # # summaryhtml urlpatterns
     # path('indexSummaryhtml', indexSummaryhtml),
@@ -230,4 +230,11 @@ urlpatterns = [
 
     # relationships urlspatterns
     path('connectConstructUser', connectConstructUser),
+    path('connectConstructStoragehost', connectConstructStoragehost),
+    path('connectConstructComputinghost', connectConstructComputinghost),
+    path('connectDatasetConstruct', connectDatasetConstruct),
+    path('connectDatasetDPStep', connectDatasetDPStep),
+    path('connectDatasetStoragehost', connectDatasetStoragehost),
+    path('connectDatacollectionDataset', connectDatacollectionDataset),
+    path('connectLigandDataset', connectLigandDataset),
 ]

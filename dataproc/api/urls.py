@@ -75,32 +75,32 @@ urlpatterns = [
     # path('destroyCoordinates', destroyCoordinates),
 
     # # datacollection urlpatterns
-    # path('indexDatacollection', indexDatacollection),
-    # path('showDatacollection', showDatacollection),
-    # path('storeDatacollection', storeDatacollection),
-    # path('updateDatacollection', updateDatacollection),
-    # path('destroyDatacollection', destroyDatacollection),
+    path('indexDatacollection', indexDatacollection),
+    path('showDatacollection', showDatacollection),
+    path('storeDatacollection', storeDatacollection),
+    path('updateDatacollection', updateDatacollection),
+    path('destroyDatacollection', destroyDatacollection),
 
-    # # dataset urlpatterns
-    # path('indexDataset', indexDataset),
-    # path('showDataset', showDataset),
-    # path('storeDataset', storeDataset),
-    # path('updateDataset', updateDataset),
-    # path('destroyDataset', destroyDataset),
+    # dataset urlpatterns
+    path('indexDataset', indexDataset),
+    path('showDataset', showDataset),
+    path('storeDataset', storeDataset),
+    path('updateDataset', updateDataset),
+    path('destroyDataset', destroyDataset),
 
-    # # dpstep urlpatterns
-    # path('indexDPstep', indexDPstep),
-    # path('showDPstep', showDPstep),
-    # path('storeDPstep', storeDPstep),
-    # path('updateDPstep', updateDPstep),
-    # path('destroyDPstep', destroyDPstep),
+    # dpstep urlpatterns
+    path('indexDPStep', indexDPStep),
+    path('showDPStep', showDPStep),
+    path('storeDPStep', storeDPStep),
+    path('updateDPStep', updateDPStep),
+    path('destroyDPStep', destroyDPStep),
 
     # # ligand urlpatterns
-    # path('indexLigand', indexLigand),
-    # path('showLigand', showLigand),
-    # path('storeLigand', storeLigand),
-    # path('updateLigand', updateLigand),
-    # path('destroyLigand', destroyLigand),
+    path('indexLigand', indexLigand),
+    path('showLigand', showLigand),
+    path('storeLigand', storeLigand),
+    path('updateLigand', updateLigand),
+    path('destroyLigand', destroyLigand),
 
     # # ligandsfitting urlpatterns
     # path('indexLigandsfitting', indexLigandsfitting),

@@ -6,6 +6,7 @@ from api.models.construct_model import Construct
 
 
 class Dataset(StructuredNode):
+ 	name=StringProperty()
  	dataset_file_no=IntegerProperty()
  	dataset_size=StringProperty()
 
@@ -17,15 +18,15 @@ class Dataset(StructuredNode):
  	@property
  	def serialize(self):
 
+ 		"""
+ 		Serializer for node properties
+ 		"""
+ 		
  		return {
  		'node_properties': {
+ 		'name': self.name,
  		'dataset_file_no': self.dataset_file_no,
  		'dataset_size': self.dataset_size,
  		},
  		}
 
-
- 		"""
- 		Serializer for node properties
- 		"""
- 		

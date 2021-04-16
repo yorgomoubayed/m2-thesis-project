@@ -1,4 +1,5 @@
 from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
+from uuid import uuid4
 
 from api.models.ligandsfitting_model import LigandsFitting
 from api.models.refinement_model import Refinement
@@ -16,35 +17,35 @@ from api.models.construct_model import Construct
 from api.models.reference_model import Reference
 
 class DPStep(StructuredNode):
- 	
- 	uuid=StringProperty()
- 	name=StringProperty()
- 	
- 	# Relationships
- 	is_fitting=RelationshipTo(LigandsFitting, 'IS')
- 	is_refinement=RelationshipTo(Refinement, 'IS')
- 	is_postrefinement=RelationshipTo(PostRefinement, 'IS')
- 	is_reductionscaling=RelationshipTo(ReductionScaling, 'IS')
- 	with_tool_1=RelationshipTo(autoPROC, 'WITH')
- 	with_tool_2=RelationshipTo(Rhofit, 'WITH')
- 	with_tool_3=RelationshipTo(Buster, 'WITH')
- 	genereates_report=RelationshipTo(Report, 'GENERATES')
- 	generates_coordinates=RelationshipTo(Coordinates, 'GENERATES')
- 	generates_rsf=RelationshipTo(RefelctionStructureFactors, 'GENERATES')
+	
+	uuid=StringProperty(unique_index=True, default=uuid4)
+	name=StringProperty()
+	
+	# Relationships
+	is_fitting=RelationshipTo(LigandsFitting, 'IS')
+	is_refinement=RelationshipTo(Refinement, 'IS')
+	is_postrefinement=RelationshipTo(PostRefinement, 'IS')
+	is_reductionscaling=RelationshipTo(ReductionScaling, 'IS')
+	with_tool_1=RelationshipTo(autoPROC, 'WITH')
+	with_tool_2=RelationshipTo(Rhofit, 'WITH')
+	with_tool_3=RelationshipTo(Buster, 'WITH')
+	genereates_report=RelationshipTo(Report, 'GENERATES')
+	generates_coordinates=RelationshipTo(Coordinates, 'GENERATES')
+	generates_rsf=RelationshipTo(RefelctionStructureFactors, 'GENERATES')
 
- 	# @property
- 	# def serialize(self):
+	@property
+	def serialize(self):
 
- 	# 	"""
- 	# 	Serializer for node properties
- 	# 	"""
- 		
- 	#     return {
- 	#         'node_properties': {
- 	#             # 'uuid': self.uuid,
- 	#             # 'tool_name': self.name,
- 	#         },
- 	#     }
+		"""
+		Serializer for node properties
+		"""
+		
+		return {
+			'node_properties': {
+				'uuid': self.uuid,
+				'tool_name': self.name,
+			},
+		}
 # class Coordinates(StructuredNode):
 #  	coordinates_source=StringProperty(unique_index=True, required=True)
 #  	coordinates_filesize=StringProperty(unique_index=True, required=True)

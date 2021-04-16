@@ -1,10 +1,10 @@
 from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
-
+from uuid import uuid4
 from api.models.dataset_model import Dataset
 
 class Ligand(StructuredNode):
 
-	uuid=StringProperty()
+	uuid=StringProperty(unique_index=True, default=uuid4)
 	name=StringProperty()
 
 	# Relationships

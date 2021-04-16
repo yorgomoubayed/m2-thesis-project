@@ -13,6 +13,10 @@ from api.models.construct_model import Construct
 from api.models.user_model import User
 from api.models.storagehost_model import StorageHost
 from api.models.computinghost_model import ComputingHost
+from api.models.dataset_model import Dataset
+from api.models.dpstep_model import DPStep
+from api.models.datacollection_model import DataCollection
+from api.models.ligand_model import Ligand
 
 # Define CRUD methods
 
@@ -131,7 +135,7 @@ def connectDatasetStoragehost(request):
 		try:
 			dataset=Dataset.nodes.get(name=name)
 			storagehost=StorageHost.nodes.get(uuid=uuid)
-			return JsonResponse({"Status": dataset.has_storage_host.connect(storagehost)}, safe=False)
+			return JsonResponse({"Status": dataset.stored.connect(storagehost)}, safe=False)
 
 		except:
 			return JsonResponse({"Error": "error occurred"}, safe=False)
@@ -149,8 +153,8 @@ def connectDatacollectionDataset(request):
 		name=json_data["name"]
 
 		try:
-			datacollection=DataCollection.nodes.get(name=name)
-			dataset=Dataset.nodes.get(uuid=uuid)
+			datacollection=DataCollection.nodes.get(uuid=uuid)
+			dataset=Dataset.nodes.get(name=name)
 			return JsonResponse({"Status": datacollection.generates.connect(dataset)}, safe=False)
 
 		except:
@@ -169,8 +173,8 @@ def connectLigandDataset(request):
 		name=json_data["name"]
 
 		try:
-			ligand=Ligand.nodes.get(name=name)
-			dataset=Dataset.nodes.get(uuid=uuid)
+			ligand=Ligand.nodes.get(uuid=uuid)
+			dataset=Dataset.nodes.get(name=name)
 			return JsonResponse({"Status": ligand.associated.connect(dataset)}, safe=False)
 
 		except:

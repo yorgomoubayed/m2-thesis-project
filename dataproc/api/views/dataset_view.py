@@ -1,5 +1,5 @@
 """
-api application controllers to perform CRUD operations on the User model
+api application controllers to perform CRUD operations on the Dataset model
 """
 
 # Import python and django libraries
@@ -84,14 +84,14 @@ def updateDataset(request):
 def destroyDataset(request):
 
     """
-    Delete one dataset by uuid
+    Delete one dataset by name
     """
 
     if request.method=='DELETE':
         json_data=json.loads(request.body)
-        uuid=json_data['uuid']
+        name=json_data['name']
         try:
-            dataset=Dataset.nodes.get(uuid=uuid)
+            dataset=Dataset.nodes.get(name=name)
             dataset.delete()
             return JsonResponse({"success": "Dataset deleted"}, safe=False)
         except:

@@ -55,7 +55,7 @@ def storeStoragehost(request):
         json_data=json.loads(request.body)
         name=json_data['name']
         try:
-            storagehost=User(name=name)
+            storagehost=StorageHost(name=name)
             storagehost.save()
             return JsonResponse(storagehost.serialize)
         except :
@@ -81,7 +81,7 @@ def updateStoragehost(request):
             return JsonResponse({"error":"Error occurred"}, safe=False)
 
 @csrf_exempt
-def destroyUser(request):
+def destroyStoragehost(request):
 
     """
     Delete one user by uuid
@@ -89,9 +89,9 @@ def destroyUser(request):
 
     if request.method=='DELETE':
         json_data=json.loads(request.body)
-        uuid=json_data['uuid']
+        name=json_data['name']
         try:
-            storagehost=StorageHost.nodes.get(uuid=uuid)
+            storagehost=StorageHost.nodes.get(name=name)
             storagehost.delete()
             return JsonResponse({"success": "Storagehost deleted"}, safe=False)
         except:

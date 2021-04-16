@@ -1,5 +1,6 @@
 """
-api application controllers to create relationships between the nodes
+api application controllers to create relationships between the nodes.
+Functions a relative to the outbound relationships from the nodes.
 """
 
 # Import python and django libraries
@@ -8,7 +9,10 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 # Import models
-from api.models import *
+from api.models.construct_model import Construct
+from api.models.user_model import User
+from api.models.storagehost_model import StorageHost
+from api.models.computinghost_model import ComputingHost
 
 # Define CRUD methods
 
@@ -21,8 +25,8 @@ def connectConstructUser(request):
 
 	if request.method=="PUT":
 		json_data=json.loads(request.body)
-		uuid=json_data["uuid"]
 		name=json_data["name"]
+		uuid=json_data["uuid"]
 
 		try:
 			construct=Construct.nodes.get(name=name)
@@ -45,8 +49,8 @@ def connectConstructStoragehost(request):
 		name=json_data["name"]
 
 		try:
-			construct=Construct.nodes.get(name=name)
-			storagehost=StorageHost.nodes.get(uuid=uuid)
+			construct=Construct.nodes.get(uuid=uuid)
+			storagehost=StorageHost.nodes.get(name=name)
 			return JsonResponse({"Status": construct.has_storage_host.connect(storagehost)}, safe=False)
 
 		except:
@@ -54,17 +58,19 @@ def connectConstructStoragehost(request):
 
 @csrf_exempt
 def connectConstructComputinghost(request):
+	
 	"""
 	Create a relationship between a construct and a computinghost
 	"""
+	
 	if request.method=="PUT":
 		json_data=json.loads(request.body)
 		uuid=json_data["uuid"]
 		name=json_data["name"]
 
 		try:
-			construct=Construct.nodes.get(name=name)
-			computinghost=ComputingHost.nodes.get(uuid=uuid)
+			construct=Construct.nodes.get(uuid=uuid)
+			computinghost=ComputingHost.nodes.get(name=name)
 			return JsonResponse({"Status": construct.has_computing_host.connect(computinghost)}, safe=False)
 
 		except:

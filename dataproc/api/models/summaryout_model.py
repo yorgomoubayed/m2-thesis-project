@@ -12,9 +12,9 @@ class SummaryOut(StructuredNode):
 		Serializer for node properties
 		"""
 		
-	    return {
-	        'node_properties': {
-	            'uuid': self.uuid,
-	            'report_name': self.report_name,
-	        },
-	    }
+		return {
+			'node_properties': {
+				'uuid': self.uuid,
+				'report_name': self.report_name,
+			},
+		}

@@ -12,9 +12,9 @@ class PDBFile(StructuredNode):
 		Serializer for node properties
 		"""
 		
-	    return {
-	        'node_properties': {
-	            'uuid': self.uuid,
-	            'coordinates_filetype': self.coordinates_filetype,
-	        },
-	    }
+		return {
+			'node_properties': {
+				'uuid': self.uuid,
+				'coordinates_filetype': self.coordinates_filetype,
+			},
+		}

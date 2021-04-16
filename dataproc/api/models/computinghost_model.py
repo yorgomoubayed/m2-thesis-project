@@ -11,9 +11,9 @@ class ComputingHost(StructuredNode):
 		Serializer for node properties
 		"""
 		
-	    return {
-	        'node_properties': {
-	            'ch_softwares': self.ch_softwares,
-	            'ch_softwares_number': self.ch_softwares_number,
-	        },
-	    }
+		return {
+			'node_properties': {
+				'ch_softwares': self.ch_softwares,
+				'ch_softwares_number': self.ch_softwares_number,
+			},
+		}

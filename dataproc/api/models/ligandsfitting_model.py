@@ -16,15 +16,18 @@ class LigandsFitting(StructuredNode):
  		"""
  		Serializer for node properties
  		"""
+
+ 		return {
+ 		'node_properties': {
+ 		'uuid': self.uuid,
+ 		'dp_step_name': self.dp_step_name,
+ 		'created_at': self.created_at,
+ 		'updated_at': self.updated_at,
+ 		'pipedream_id': self.pipedream_id,
+ 		'score': self.score,
+ 		'fitting_success': self.fitting_success,
+ 		},
+ 		}
+
+
  		
- 	    return {
- 	        'node_properties': {
- 	            'uuid': self.uuid,
- 	            'dp_step_name': self.dp_step_name,
- 	            'created_at': self.created_at,
- 	            'updated_at': self.updated_at,	       
- 	            'pipedream_id': self.pipedream_id, 	            
- 	            'score': self.score,	    
- 	            'fitting_success': self.fitting_success,
- 	        },
- 	    }

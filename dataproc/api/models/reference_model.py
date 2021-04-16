@@ -11,8 +11,8 @@ class Reference(StructuredNode):
 		Serializer for node properties
 		"""
 		
-	    return {
-	        'node_properties': {
-	            'uuid': self.uuid,
-	        },
-	    }
+		return {
+			'node_properties': {
+				'uuid': self.uuid,
+			},
+		}

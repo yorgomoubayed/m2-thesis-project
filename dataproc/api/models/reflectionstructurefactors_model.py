@@ -8,29 +8,29 @@ from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdPro
 
 
 class RefelctionStructureFactors(StructuredNode):
- 	rsf_source=StringProperty()
- 	rsf_filesize=StringProperty()
- 	rsf_filepath=StringProperty()
+	rsf_source=StringProperty()
+	rsf_filesize=StringProperty()
+	rsf_filepath=StringProperty()
 
- 	# Relationships
- 	input_as_ref=RelationshipTo('DPStep', 'INPUT_AS_REFERENCE')
- 	input_of=RelationshipTo('DPStep', 'INPUT')
- 	generates_mtz=RelationshipTo('MTZfile', 'GENERATES')
- 	generates_scalepack=RelationshipTo('ScalepackFile', 'GENERATES')
- 	labelled=RelationshipTo('Reference', 'LABELLED')
- 	belongs=RelationshipTo('Construct', 'BELONGS')
+	# Relationships
+	input_as_ref=RelationshipTo('DPStep', 'INPUT_AS_REFERENCE')
+	input_of=RelationshipTo('DPStep', 'INPUT')
+	generates_mtz=RelationshipTo('MTZfile', 'GENERATES')
+	generates_scalepack=RelationshipTo('ScalepackFile', 'GENERATES')
+	labelled=RelationshipTo('Reference', 'LABELLED')
+	belongs=RelationshipTo('Construct', 'BELONGS')
 
- 	@property
- 	def serialize(self):
+	@property
+	def serialize(self):
 
- 		"""
- 		Serializer for node properties
- 		"""
- 		
- 	    return {
- 	        'node_properties': {
- 	            'rsf_source': self.rsf_source,
- 	            'rsf_filesize': self.rsf_filesize,
- 	            'rsf_filepath': self.rsf_filepath,
- 	        },
- 	    }
+		"""
+		Serializer for node properties
+		"""
+		
+		return {
+			'node_properties': {
+				'rsf_source': self.rsf_source,
+				'rsf_filesize': self.rsf_filesize,
+				'rsf_filepath': self.rsf_filepath,
+			},
+		}

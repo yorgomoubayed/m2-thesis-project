@@ -12,9 +12,9 @@ class Rhofit(StructuredNode):
 		Serializer for node properties
 		"""
 		
-	    return {
-	        'node_properties': {
-	            'uuid': self.uuid,
-	            'tool_name': self.tool_name,
-	        },
-	    }
+		return {
+			'node_properties': {
+				'uuid': self.uuid,
+				'tool_name': self.tool_name,
+			},
+		}

@@ -228,6 +228,10 @@ urlpatterns = [
     path('updateUser', updateUser),
     path('destroyUser', destroyUser),
 
+    #################
+    # Relationships #
+    #################
+    
     # relationships urlspatterns for constructs
     path('connectConstructUser', connectConstructUser),
     path('connectConstructStoragehost', connectConstructStoragehost),

@@ -228,13 +228,19 @@ urlpatterns = [
     path('updateUser', updateUser),
     path('destroyUser', destroyUser),
 
-    # relationships urlspatterns
+    # relationships urlspatterns for constructs
     path('connectConstructUser', connectConstructUser),
     path('connectConstructStoragehost', connectConstructStoragehost),
     path('connectConstructComputinghost', connectConstructComputinghost),
+
+    # relationships urlspatterns for datasets
     path('connectDatasetConstruct', connectDatasetConstruct),
     path('connectDatasetDPStep', connectDatasetDPStep),
     path('connectDatasetStoragehost', connectDatasetStoragehost),
+
+    # relationships urlspatterns for datacollection
     path('connectDatacollectionDataset', connectDatacollectionDataset),
+
+    # relationships urlspatterns for ligands
     path('connectLigandDataset', connectLigandDataset),
 ]

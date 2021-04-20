@@ -6,7 +6,12 @@ from api.models.coordinates_model import Coordinates
 
 class OCF(StructuredNode):
 	
+	# Properties
 	uuid=StringProperty(unique_index=True, default=uuid4)
+	name=StringProperty()
+	pipedreamcommand=StringProperty()
+	priority=StringProperty()
+	useruuid=StringProperty()
 
 	# Relationships
 	has_rsf=RelationshipTo(RefelctionStructureFactors, 'HAS')
@@ -21,6 +26,10 @@ class OCF(StructuredNode):
 		
 		return {
 			'node_properties': {
-				'uuid': self.uuid
+				'uuid': self.uuid,
+				'name': self.name,
+				'pipedreamCommand': self.pipedreamcommand,
+				'priority': self.priority,
+				'useruuid': self.useruuid,
 			},
 		}

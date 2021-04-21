@@ -2,10 +2,11 @@ from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdPro
 from uuid import uuid4
 
 class ComputingHost(StructuredNode):
-	name=StringProperty()
+	ip=StringProperty()
 	uuid=StringProperty(unique_index=True, default=uuid4)
-	ch_softwares=StringProperty()
-	ch_softwares_number=IntegerProperty()
+	hostname=StringProperty()
+	friendlyname=StringProperty()
+	workingdirectory=StringProperty()
 
 	@property
 	def serialize(self):
@@ -16,9 +17,10 @@ class ComputingHost(StructuredNode):
 		
 		return {
 			'node_properties': {
-				'name': self.name,
+				'ip': self.name,
 				'uuid': self.uuid,
-				'ch_softwares': self.ch_softwares,
-				'ch_softwares_number': self.ch_softwares_number,
+				'hostname': self.sh_files,
+				'friendlyname': self.sh_files_number,
+				'workingdirectory': self.workingdirectory,
 			},
 		}

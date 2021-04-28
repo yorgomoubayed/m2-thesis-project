@@ -1,17 +1,24 @@
+# Import libraries
 from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
 from uuid import uuid4
 
+# Improt models
 from api.models.reflectionstructurefactors_model import RefelctionStructureFactors
 from api.models.coordinates_model import Coordinates
 
 class OCF(StructuredNode):
 	
+	"""
+	Defines node properties and relationships
+	Provides data serializer
+	"""
+
 	# Properties
 	uuid=StringProperty(unique_index=True, default=uuid4)
 	name=StringProperty()
-	pipedreamcommand=StringProperty()
-	priority=StringProperty()
-	useruuid=StringProperty()
+	userUuid=StringProperty(unique_index=True, default=uuid4)
+	pipedreamCommand=StringProperty()
+	priority=IntegerProperty()
 
 	# Relationships
 	has_rsf=RelationshipTo(RefelctionStructureFactors, 'HAS')
@@ -27,9 +34,9 @@ class OCF(StructuredNode):
 		return {
 			'node_properties': {
 				'uuid': self.uuid,
+				'userUuid': self.userUuid,
 				'name': self.name,
-				'pipedreamCommand': self.pipedreamcommand,
+				'pipedreamCommand': self.pipedreamCommand,
 				'priority': self.priority,
-				'useruuid': self.useruuid,
 			},
 		}

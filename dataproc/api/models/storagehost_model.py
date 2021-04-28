@@ -4,9 +4,9 @@ from uuid import uuid4
 class StorageHost(StructuredNode):
 	ip=StringProperty()
 	uuid=StringProperty(unique_index=True, default=uuid4)
-	hostname=StringProperty()
-	friendlyname=StringProperty()
-	workingdirectory=StringProperty()
+	hostName=StringProperty()
+	friendlyName=StringProperty()
+	workingDirectory=StringProperty()
 
 	@property
 	def serialize(self):
@@ -17,10 +17,10 @@ class StorageHost(StructuredNode):
 		
 		return {
 			'node_properties': {
-				'ip': self.name,
+				'ip': self.ip,
 				'uuid': self.uuid,
-				'hostname': self.sh_files,
-				'friendlyname': self.sh_files_number,
-				'workingdirectory': self.workingdirectory,
+				'hostName': self.hostName,
+				'friendlyName': self.friendlyName,
+				'workingDirectory': self.workingDirectory,
 			},
 		}

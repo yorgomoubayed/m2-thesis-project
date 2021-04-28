@@ -5,22 +5,18 @@ from api.models.dpstep_model import DPStep
 from api.models.storagehost_model import StorageHost
 from api.models.construct_model import Construct
 
-
 class Dataset(StructuredNode):
  	
  	# Properties
  	uuid=StringProperty(unique_index=True, default=uuid4)
- 	name=StringProperty()
- 	# dataset_file_no=IntegerProperty()
- 	# dataset_size=StringProperty()
- 	filetemplatename=StringProperty()
- 	useruuid=StringProperty()
- 	crystaluuid=StringProperty()
- 	currentpath=StringProperty()
- 	generationpath=StringProperty()
- 	blstartingdate=DateTimeProperty()
- 	beamlinename=StringProperty()
- 	facilityname=StringProperty()
+ 	fileTemplateName=StringProperty()
+ 	userUuid=StringProperty()
+ 	crystalUuid=StringProperty()
+ 	currentPath=StringProperty(max_length=500)
+ 	generationPath=StringProperty(max_length=500)
+ 	blStartingDate=StringProperty()
+ 	beamlineName=StringProperty()
+ 	facilityName=StringProperty()
 
  	# Relationships
  	input_of=RelationshipTo(DPStep, 'INPUT')
@@ -37,17 +33,14 @@ class Dataset(StructuredNode):
  		return {
  		'node_properties': {
  		'uuid': self.uuid,
- 		'name': self.name,
- 		'filetemplatename': self.filetemplatename,
- 		'useruuid': self.useruuid,
- 		'crystaluuid': self.crystaluuid,
- 		'currentpath': self.currentpath,
- 		'generationpath': self.generationpath,
- 		'blstartingdate': self.blstartingdate,
- 		'beamlinename': self.beamlinename,
- 		'facilityname': self.facilityname,
- 		# 'dataset_file_no': self.dataset_file_no,
- 		# 'dataset_size': self.dataset_size,
+ 		'fileTemplateName': self.fileTemplateName,
+ 		'userUuid': self.userUuid,
+ 		'crystalUuid': self.crystalUuid,
+ 		'currentPath': self.currentPath,
+ 		'generationPath': self.generationPath,
+ 		'blStartingDate': self.blStartingDate,
+ 		'beamlineName': self.beamlineName,
+ 		'facilityName': self.facilityName,
  		},
  		}
 

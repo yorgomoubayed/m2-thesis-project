@@ -12,7 +12,7 @@ import json
 from api.models.construct_model import Construct
 from api.models.user_model import User
 from api.models.storagehost_model import StorageHost
-from api.models.computinghost_model import ComputingHost
+from api.models.computationhost_model import ComputationHost
 from api.models.dataset_model import Dataset
 from api.models.dpstep_model import DPStep
 from api.models.datacollection_model import DataCollection
@@ -61,10 +61,10 @@ def connectConstructStoragehost(request):
 			return JsonResponse({"Error": "error occurred"}, safe=False)
 
 @csrf_exempt
-def connectConstructComputinghost(request):
+def connectConstructComputationhost(request):
 	
 	"""
-	Create a relationship between a construct and a computinghost
+	Create a relationship between a construct and a computationhost
 	"""
 	
 	if request.method=="PUT":
@@ -74,8 +74,8 @@ def connectConstructComputinghost(request):
 
 		try:
 			construct=Construct.nodes.get(uuid=uuid)
-			computinghost=ComputingHost.nodes.get(name=name)
-			return JsonResponse({"Status": construct.has_computing_host.connect(computinghost)}, safe=False)
+			computationhost=ComputationHost.nodes.get(name=name)
+			return JsonResponse({"Status": construct.has_computation_host.connect(computationhost)}, safe=False)
 
 		except:
 			return JsonResponse({"Error": "error occurred"}, safe=False)

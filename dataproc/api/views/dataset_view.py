@@ -9,6 +9,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Import models
 from api.models.dataset_model import Dataset
+# from api.models.storagehost_model import StorageHost
+from api.views.storagehost_view import storeStoragehost
 
 # Define CRUD functions
 @csrf_exempt
@@ -37,9 +39,9 @@ def showDataset(request):
     """
 
     if request.method=='GET':
-        name=request.GET.get('name', ' ')
+        uuid=request.GET.get('uuid', ' ')
         try:
-            dataset=Dataset.nodes.get(name=name)
+            dataset=Dataset.nodes.get(uuid=uuid)
             return JsonResponse(dataset.serialize, safe=False)
         except :
             return JsonResponse({"error":"Error occurred"}, safe=False)
@@ -96,3 +98,4 @@ def destroyDataset(request):
             return JsonResponse({"success": "Dataset deleted"}, safe=False)
         except:
             return JsonResponse({"error":"Error occurred"}, safe=False)
+

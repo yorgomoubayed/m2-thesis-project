@@ -1,38 +1,46 @@
 {
-    "user":{
+    "user":
+    {
         "uuid":"bc7613ad-d407-4f54-928a-9ca570b1f636"
     },
-    "construct":{
+
+    "construct":
+    {
         "uuid":"f939cc0f-9249-47f1-b21d-78d837eba9dd",
         "userUuid":"15eab1bc-bc1c-4c43-bc6e-1c5704af0bc4",
         "name":"ChPAP 1-517",
-        "observedCrystalForms":[{
-                "uuid":"641a1e9e-5674-45ae-a180-b2e538957d21",
-                "userUuid":"17177c10-359a-46c0-b182-cb6340d397f1",
-                "name":"Triclinic",
-                "pipedreamCommand":"",
-                "priority":0
-            },
-            {
-                "uuid":"0e19ce46-0f95-4e1a-bf85-2700cd2b90a8",
-                "userUuid":"15eab1bc-bc1c-4c43-bc6e-1c5704af0bc4",
-                "name":"chPAP",
-                "pipedreamCommand":"",
-                "priority":0
-            }
-        ]
+
+        "OCF":
+            [
+                {
+                    "uuid":"641a1e9e-5674-45ae-a180-b2e538957d21",
+                    "userUuid":"17177c10-359a-46c0-b182-cb6340d397f1",
+                    "name":"Triclinic",
+                    "pipedreamCommand":"",
+                    "priority":0
+                },
+                {
+                    "uuid":"0e19ce46-0f95-4e1a-bf85-2700cd2b90a8",
+                    "userUuid":"15eab1bc-bc1c-4c43-bc6e-1c5704af0bc4",
+                    "name":"chPAP",
+                    "pipedreamCommand":"",
+                    "priority":0
+                }
+            ]
     },
+    
     "dataset":{
         "uuid":"ec2ae6be-b290-4836-8fd5-92bcc6180a95",
-"fileTemplateName":"chPAP-PAP_CD028443_C4-1_Z381421864_w1_1_",
+        "fileTemplateName":"chPAP-PAP_CD028443_C4-1_Z381421864_w1_1_",
         "userUuid":"bc7613ad-d407-4f54-928a-9ca570b1f636",
         "crystalUuid":"747d0196-6ebd-4dff-b19b-dd2b8ad82d25",
-"currentPath":"/crimsXdata/CRIMS-ARCHITECTURE/IMAGES/marquez/2021/20210128_id23eh2/P-43782/X-35442/D-3867/",
-"generationPath":"/crimsXdata/CRIMS-ARCHITECTURE/IMPORT/DATASETS/chPAP/20210128_id23eh2/chPAP/chPAP-PAP_CD028443_C4-1_Z381421864",
+        "currentPath":"/crimsXdata/CRIMS-ARCHITECTURE/IMAGES/marquez/2021/20210128_id23eh2/P-43782/X-35442/D-3867/",
+        "generationPath":"/crimsXdata/CRIMS-ARCHITECTURE/IMPORT/DATASETS/chPAP/20210128_id23eh2/chPAP/chPAP-PAP_CD028443_C4-1_Z381421864",
         "blStartingDate":20210128,
         "beamlineName":"ID23eh2",
         "facilityName":"ESRF"
     },
+
     "storageHost":{
         "uuid":"8507b001-ad8a-4d3f-bbbc-ad7f6cb4e086",
         "ip":"172.26.40.101",
@@ -40,17 +48,19 @@
         "friendlyName":"iNext server",
         "workingDirectory":"/crimsXdata/CRIMS-ARCHITECTURE"
     },
+
     "computationHost":{
         "uuid":"5414db5a-0dbd-4c1c-810c-0d2016f237d7",
         "ip":"172.26.19.235",
-        "hostname":"inext1",
+        "hostName":"inext1",
         "friendlyName":"iNext server",
         "workingDirectory":"/crimsXdata/CRIMS-ARCHITECTURE"
     },
+
     "dataCollection":{
         "uuid":"437523b1-2ece-42d9-b15d-b0e1262af845",
         "imagesNumber":501,
-        "flux":"130547591419.23657,
+        "flux":130547591419.23657,
         "resolution":null,
         "wavelength":0.873128,
         "transmission":1.0127513087999997,

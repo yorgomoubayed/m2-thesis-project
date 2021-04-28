@@ -9,7 +9,7 @@ from django.urls import path
 # Import CRUD functions from views modules
 from api.views.autoPROC_view import *
 from api.views.buster_view import *
-from api.views.computinghost_view import *
+from api.views.computationhost_view import *
 from api.views.construct_view import *
 from api.views.coordinates_view import *
 from api.views.datacollection_view import *
@@ -34,11 +34,13 @@ from api.views.summaryhtml_view import *
 from api.views.summaryout_view import *
 from api.views.user_view import *
 from api.views.relationships_view import *
-
+from api.views.input_view import *
 # Define url patterns
 
 urlpatterns = [
 	
+    path('storeInput', storeInput),
+
     # # autoPROC urlpatterns
     # path('indexautoPROC', indexautoPROC),
     # path('showautoPROC', showautoPROC),
@@ -53,12 +55,12 @@ urlpatterns = [
     # path('updateBuster', updateBuster),
     # path('destroyBuster', destroyBuster),
 
-    # computinghost urlpatterns
-    path('indexComputinghost', indexComputinghost),
-    path('showComputinghost', showComputinghost),
-    path('storeComputinghost', storeComputinghost),
-    path('updateComputinghost', updateComputinghost),
-    path('destroyComputinghost', destroyComputinghost),
+    # computationhost urlpatterns
+    path('indexComputationhost', indexComputationhost),
+    path('showComputationhost', showComputationhost),
+    path('storeComputationhost', storeComputationhost),
+    path('updateComputationhost', updateComputationhost),
+    path('destroyComputationhost', destroyComputationhost),
 
     # construct urlpatterns
     path('indexConstruct', indexConstruct),
@@ -235,7 +237,7 @@ urlpatterns = [
     # relationships urlspatterns for constructs
     path('connectConstructUser', connectConstructUser),
     path('connectConstructStoragehost', connectConstructStoragehost),
-    path('connectConstructComputinghost', connectConstructComputinghost),
+    path('connectConstructComputationhost', connectConstructComputationhost),
 
     # relationships urlspatterns for datasets
     path('connectDatasetConstruct', connectDatasetConstruct),

@@ -31,16 +31,16 @@ class Dataset(StructuredNode):
  		"""
  		
  		return {
- 		'node_properties': {
- 		'uuid': self.uuid,
- 		'fileTemplateName': self.fileTemplateName,
- 		'userUuid': self.userUuid,
- 		'crystalUuid': self.crystalUuid,
- 		'currentPath': self.currentPath,
- 		'generationPath': self.generationPath,
- 		'blStartingDate': self.blStartingDate,
- 		'beamlineName': self.beamlineName,
- 		'facilityName': self.facilityName,
+ 		'dataset_node_properties': {
+	 		'uuid': self.uuid,
+	 		'fileTemplateName': self.fileTemplateName,
+	 		'userUuid': self.userUuid,
+	 		'crystalUuid': self.crystalUuid,
+	 		'currentPath': self.currentPath,
+	 		'generationPath': self.generationPath,
+	 		'blStartingDate': self.blStartingDate,
+	 		'beamlineName': self.beamlineName,
+	 		'facilityName': self.facilityName,
  		},
  		}
 

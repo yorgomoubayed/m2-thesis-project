@@ -16,7 +16,7 @@ class StorageHost(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
+			'storagehost_node_properties': {
 				'ip': self.ip,
 				'uuid': self.uuid,
 				'hostName': self.hostName,

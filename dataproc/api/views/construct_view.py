@@ -2,15 +2,20 @@
 api application controllers to perform CRUD operations on the construct model
 """
 
-# Import python and django libraries
+# Import Python libraries
 import json
 import logging
+
+# Import Django libraries
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 # Import models
 from api.models.construct_model import Construct
+
+# Activate logger
 logger = logging.getLogger('dataproc')
+# logger.info('TEMPLATE')
 
 # Define CRUD functions
 @csrf_exempt
@@ -22,16 +27,14 @@ def indexConstruct(request):
 
     if request.method=='GET':
         try:
-            logger.info('show construct')
             constructs=Construct.nodes.all()
-            logger.info('show construct')
             response=[]
             for construct in constructs :
                 node=construct.serialize
                 response.append(node)
             return JsonResponse(response, safe=False)
         except:
-            return JsonResponse({"error": "Error occurred"}, safe=False)
+            return JsonResponse({"Status": "ERROR OCCURRED"}, safe=False)
 
 @csrf_exempt
 def showConstruct(request):
@@ -46,7 +49,7 @@ def showConstruct(request):
             construct=Construct.nodes.get(name=name)
             return JsonResponse(construct.serialize, safe=False)
         except :
-            return JsonResponse({"error":"Error occurred"}, safe=False)
+            return JsonResponse({"Status": "ERROR OCCURRED"}, safe=False)
 
 @csrf_exempt
 def storeConstruct(request):
@@ -63,7 +66,7 @@ def storeConstruct(request):
             construct.save()
             return JsonResponse(construct.serialize)
         except :
-            return JsonResponse({"error":"Error occurred"}, safe=False)
+            return JsonResponse({"Status": "ERROR OCCURRED"}, safe=False)
 
 @csrf_exempt
 def updateConstruct(request):
@@ -82,7 +85,7 @@ def updateConstruct(request):
             construct.save()
             return JsonResponse(construct.serialize, safe=False)
         except:
-            return JsonResponse({"error":"Error occurred"}, safe=False)
+            return JsonResponse({"Status": "ERROR OCCURRED"}, safe=False)
 
 @csrf_exempt
 def destroyConstruct(request):
@@ -97,6 +100,6 @@ def destroyConstruct(request):
         try:
             construct=Construct.nodes.get(uuid=uuid)
             construct.delete()
-            return JsonResponse({"success": "construct deleted"}, safe=False)
+            return JsonResponse({"Status": "CONSTRUCT DELETED"}, safe=False)
         except:
-            return JsonResponse({"error":"Error occurred"}, safe=False)
+            return JsonResponse({"Status": "ERROR OCCURRED"}, safe=False)

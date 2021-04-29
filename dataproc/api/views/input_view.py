@@ -1,11 +1,11 @@
-# Import Django libraries
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-
 # Import Python libraries
 import json
 import logging
 import sys
+
+# Import Django libraries
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Import models
 from api.models.dataset_model import Dataset
@@ -17,8 +17,8 @@ from api.models.user_model import User
 from api.models.ocf_model import OCF
 
 # Activate logger
-logger = logging.getLogger('dataproc')
-#logger.info('TEMPLATE')
+logger=logging.getLogger('dataproc')
+# logger.info('TEMPLATE')
 
 @csrf_exempt
 def storeInput(request):
@@ -36,7 +36,7 @@ def storeInput(request):
         json_data_construct=json_data['construct']
         json_data_computationhost=json_data['computationHost']
         json_data_datacollection=json_data['dataCollection']
-        # json_data_ocf=json_data['OCF']
+        json_data_ocf=json_data['OCF']
         
         try:
 
@@ -46,8 +46,9 @@ def storeInput(request):
             storeParseConstruct(json_data_construct)
             storeParseComputationHost(json_data_computationhost)
             storeParseDataCollection(json_data_datacollection)
-            # storeParseOCF(json_data_ocf)
+            storeParseOCF(json_data_ocf)
 
+            return JsonResponse(json_data_construct)
             return JsonResponse({"Status": "INPUT SUCCESSFULLY REGISTERED"})
 
         except :
@@ -89,8 +90,7 @@ def storeParseStorageHost(data):
             # uuid=data['uuid'],
             hostName=data['hostName'],
             friendlyName=data['friendlyName'],
-            workingDirectory=data['workingDirectory']
-            )
+            workingDirectory=data['workingDirectory'])
         storagehost.save()
         return storagehost.serialize
     
@@ -110,8 +110,7 @@ def storeParseComputationHost(data):
             uuid=data['uuid'],
             hostName=data['hostName'],
             friendlyName=data['friendlyName'],
-            workingDirectory=data['workingDirectory']
-            )
+            workingDirectory=data['workingDirectory'])
         computationhost.save()
         return computationhost.serialize
     
@@ -159,6 +158,7 @@ def storeParseDataCollection(data):
     """
     Creates nodes for each data collection with relative properties
     """
+
     try:
         datacollection=DataCollection(uuid=data['uuid'],
             imagesNumber=data['imagesNumber'],
@@ -168,8 +168,7 @@ def storeParseDataCollection(data):
             transmission=data['transmission'],
             exposureTime=data['exposureTime'],
             detectorDistance=data['detectorDistance'],
-            beamlineName=data['beamlineName']
-            )
+            beamlineName=data['beamlineName'])
         datacollection.save()
         return datacollection.serialize
 
@@ -183,9 +182,9 @@ def storeParseOCF(data):
     """
     Creates nodes for each ocf with relative properties
     """
+
     try:
-        ocf=OCF(
-            # uuid=data['uuid'],
+        ocf=OCF(# uuid=data['uuid'],
             # userUuid=data['userUuid'],
             name=data['name'],
             pipedreamCommand=data['pipedreamCommand'],

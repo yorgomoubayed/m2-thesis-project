@@ -30,25 +30,28 @@ def storeInput(request):
     if request.method=='POST':
         json_data=json.loads(request.body)
         
-        # json_data_dataset=json_data['dataset']
-        # json_data_storagehost=json_data['storageHost']
-        # json_data_user=json_data['user']
-        # json_data_construct=json_data['construct']
-        # json_data_computationhost=json_data['computationHost']
-        # json_data_datacollection=json_data['dataCollection']
-        json_data_ocf=json_data['OCF']
-
+        json_data_dataset=json_data['dataset']
+        json_data_storagehost=json_data['storageHost']
+        json_data_user=json_data['user']
+        json_data_construct=json_data['construct']
+        json_data_computationhost=json_data['computationHost']
+        json_data_datacollection=json_data['dataCollection']
+        # json_data_ocf=json_data['OCF']
+        
         try:
-            # return JsonResponse(storeParseDataset(json_data_dataset)) 
-            # return JsonResponse(storeParseStorageHost(json_data_storagehost))
-            # return JsonResponse(storeParseUser(json_data_user))
-            # return JsonResponse(storeParseConstruct(json_data_construct))
-            # return JsonResponse(storeParseComputationHost(json_data_computationhost))
-            # return JsonResponse(storeParseDataCollection(json_data_datacollection))
-            return JsonResponse(storeParseOCF(json_data_ocf))
+
+            storeParseDataset(json_data_dataset)
+            storeParseStorageHost(json_data_storagehost)
+            storeParseUser(json_data_user)
+            storeParseConstruct(json_data_construct)
+            storeParseComputationHost(json_data_computationhost)
+            storeParseDataCollection(json_data_datacollection)
+            # storeParseOCF(json_data_ocf)
+
+            return JsonResponse({"Status": "INPUT SUCCESSFULLY REGISTERED"})
 
         except :
-            return JsonResponse({"error":"Error occurred"}, safe=False)
+            return JsonResponse({"Status":"ERROR OCCURRED"}, safe=False)
 
 @csrf_exempt
 def storeParseDataset(data):
@@ -72,7 +75,7 @@ def storeParseDataset(data):
     
     except:
         print(sys.exc_info()[0])
-        return ('Error occurred while storing dataset')
+        return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING DATASET"})
 
 @csrf_exempt
 def storeParseStorageHost(data):
@@ -93,7 +96,7 @@ def storeParseStorageHost(data):
     
     except:
         print(sys.exc_info()[0])
-        return ('Error occurred while storing storage host')
+        return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING STORAGE HOST"})
 
 @csrf_exempt
 def storeParseComputationHost(data):
@@ -114,7 +117,7 @@ def storeParseComputationHost(data):
     
     except:
         print(sys.exc_info()[0])
-        return ('Error occurred while storing computing host')
+        return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING COMPUTATION HOST"})
 
 @csrf_exempt
 def storeParseConstruct(data):
@@ -132,7 +135,7 @@ def storeParseConstruct(data):
     
     except:
         print(sys.exc_info()[0])
-        return ('Error occurred while storing construct')
+        return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING CONSTRUCT"})
 
 @csrf_exempt
 def storeParseUser(data):
@@ -148,7 +151,7 @@ def storeParseUser(data):
     
     except:
         print(sys.exc_info()[0])
-        return ('Error occurred while storing user')
+        return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING USER"})
 
 @csrf_exempt
 def storeParseDataCollection(data):
@@ -172,7 +175,7 @@ def storeParseDataCollection(data):
 
     except:
         print(sys.exc_info()[0])
-        return ('Error occurred while storing data collection')
+        return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING DATA COLLECTION"})
 
 @csrf_exempt
 def storeParseOCF(data):
@@ -187,10 +190,13 @@ def storeParseOCF(data):
             name=data['name'],
             pipedreamCommand=data['pipedreamCommand'],
             priority=data['priority'])
+
         for ocf in data:
             ocf.save()
             return ocf.serialize
+        # ocf.save()
+        # return ocf.serialize
 
     except:
         print(sys.exc_info()[0])
-        return ('Error occurred while storing ocf')
+        return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING OCF"})

@@ -1,13 +1,13 @@
-# Import Python libraries
+# Python improts
 import json
 import logging
 import sys
 
-# Import Django libraries
+# Django imports
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-# Import models
+# Models imports
 from api.models.dataset_model import Dataset
 from api.models.storagehost_model import StorageHost
 from api.models.computationhost_model import ComputationHost
@@ -31,32 +31,32 @@ def storeInput(request):
     if request.method=='POST':
         json_data=json.loads(request.body)
         
-        json_data_dataset=json_data['dataset']
-        json_data_storagehost=json_data['storageHost']
-        json_data_user=json_data['user']
-        json_data_construct=json_data['construct']
-        json_data_computationhost=json_data['computationHost']
-        json_data_datacollection=json_data['dataCollection']
-        # json_data_ocf=json_data['OCF']
+        # json_data_dataset=json_data['dataset']
+        # json_data_storagehost=json_data['storageHost']
+        # json_data_user=json_data['user']
+        # json_data_construct=json_data['construct']
+        # json_data_computationhost=json_data['computationHost']
+        # json_data_datacollection=json_data['dataCollection']
+        json_data_ocf=json_data['OCF']
         
 
         try:
             # Register nodes
-            storeParseDataset(json_data_dataset)
-            storeParseStorageHost(json_data_storagehost)
-            storeParseUser(json_data_user)
-            storeParseConstruct(json_data_construct)
-            storeParseComputationHost(json_data_computationhost)
-            storeParseDataCollection(json_data_datacollection)
-            # storeParseOCF(json_data_ocf)
+            # storeParseDataset(json_data_dataset)
+            # storeParseStorageHost(json_data_storagehost)
+            # storeParseUser(json_data_user)
+            # storeParseConstruct(json_data_construct)
+            # storeParseComputationHost(json_data_computationhost)
+            # storeParseDataCollection(json_data_datacollection)
+            storeParseOCF(json_data_ocf)
 
             # Register relationships 
-            connectConstructUser(json_data_construct, json_data_user)
-            connectConstructStorageHost(json_data_construct, json_data_storagehost)
-            connectConstructComputationHost(json_data_construct, json_data_computationhost)
-            connectDatasetConstruct(json_data_dataset, json_data_construct)
-            connectDatasetStorageHost(json_data_dataset, json_data_storagehost)
-            connectDataCollectionDataset(json_data_datacollection, json_data_dataset)
+            # connectConstructUser(json_data_construct, json_data_user)
+            # connectConstructStorageHost(json_data_construct, json_data_storagehost)
+            # connectConstructComputationHost(json_data_construct, json_data_computationhost)
+            # connectDatasetConstruct(json_data_dataset, json_data_construct)
+            # connectDatasetStorageHost(json_data_dataset, json_data_storagehost)
+            # connectDataCollectionDataset(json_data_datacollection, json_data_dataset)
 
             return JsonResponse({"Status": "INPUT SUCCESSFULLY REGISTERED"})
 
@@ -193,15 +193,19 @@ def storeParseOCF(data):
     """
 
     try:
-        ocf=OCF(# uuid=data['uuid'],
-            # userUuid=data['userUuid'],
-            name=data['name'],
-            pipedreamCommand=data['pipedreamCommand'],
-            priority=data['priority'])
+        for input_ocf in data:
 
-        for ocf in data:
+            ocf=OCF(
+                uuid=input_ocf['uuid'],
+                userUuid=input_ocf['userUuid'],
+                name=input_ocf['name'],
+                pipedreamCommand=input_ocf['pipedreamCommand'],
+                priority=input_ocf['priority'])
+
             ocf.save()
-            return ocf.serialize
+
+        return ({"STATUS": "OCF REGISTERED"})
+
         # ocf.save()
         # return ocf.serialize
 
@@ -288,7 +292,7 @@ def connectDatasetStorageHost(data1, data2):
 def connectDataCollectionDataset(data1, data2):
     
     """
-    Create a relationship between a datacollection and a dataset
+    Create a relationship between a data collection and a dataset
     """
 
     try:

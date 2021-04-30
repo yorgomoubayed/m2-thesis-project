@@ -2,7 +2,7 @@
 from uuid import uuid4
 
 # Third-party imports
-from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo, DateProperty
 
 # Models imports
 from api.models.dpstep_model import DPStep
@@ -41,15 +41,15 @@ class Dataset(StructuredNode):
  		
  		return {
  		'dataset_node_properties': {
-	 		'uuid': self.uuid,
-	 		'fileTemplateName': self.fileTemplateName,
-	 		'userUuid': self.userUuid,
-	 		'crystalUuid': self.crystalUuid,
-	 		'currentPath': self.currentPath,
-	 		'generationPath': self.generationPath,
-	 		'blStartingDate': self.blStartingDate,
-	 		'beamlineName': self.beamlineName,
-	 		'facilityName': self.facilityName,
+ 		'uuid': self.uuid,
+ 		'fileTemplateName': self.fileTemplateName,
+ 		'userUuid': self.userUuid,
+ 		'crystalUuid': self.crystalUuid,
+ 		'currentPath': self.currentPath,
+ 		'generationPath': self.generationPath,
+ 		'blStartingDate': self.blStartingDate,
+ 		'beamlineName': self.beamlineName,
+ 		'facilityName': self.facilityName,
  		},
  		}
 

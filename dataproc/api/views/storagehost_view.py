@@ -2,15 +2,16 @@
 api application controllers to perform CRUD operations on the Storagehost model
 """
 
-# Import python and django libraries
+# Python imports
 import json
+
+# Django imports
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-# Import models
+# Models imports
 from api.models.storagehost_model import StorageHost
 
-# Define CRUD functions
 @csrf_exempt
 def indexStoragehost(request):
 

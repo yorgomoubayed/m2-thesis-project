@@ -2,15 +2,16 @@
 api application controllers to perform CRUD operations on the Datacollection model
 """
 
-# Import python and django libraries
+# Python imports
 import json
+
+# Django imports
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-# Import models
+# Models imports
 from api.models.datacollection_model import DataCollection
 
-# Define CRUD functions
 @csrf_exempt
 def indexDatacollection(request):
 

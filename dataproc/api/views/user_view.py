@@ -1,16 +1,17 @@
 """
-api application controllers to perform CRUD operations on the User model
+api application controllers to perform CRUD operations on the user model
 """
 
-# Import python and django libraries
+# Python imports
 import json
+
+# Django imports
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-# Import models
+# Models imports
 from api.models.user_model import User
 
-# Define CRUD functions
 @csrf_exempt
 def indexUser(request):
 

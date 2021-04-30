@@ -2,15 +2,16 @@
 # api application controllers to perform CRUD operations on the User model
 # """
 
-# # Import python and django libraries
+# # Python imports
 # import json
+
+# Django imports
 # from django.http import JsonResponse
 # from django.views.decorators.csrf import csrf_exempt
 
-# # Import models
+# # Models imports
 # from api.models.autoPROC_model import autoPROC
 
-# # Define CRUD functions
 # @csrf_exempt
 # def indexautoPROC(request):
 

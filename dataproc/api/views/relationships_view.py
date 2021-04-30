@@ -3,12 +3,14 @@ api application controllers to create relationships between the nodes.
 Functions a relative to the outbound relationships from the nodes.
 """
 
-# Import python and django libraries
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+# Python imports
 import json
 
-# Import models
+# Django imports
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+# Models imports
 from api.models.construct_model import Construct
 from api.models.user_model import User
 from api.models.storagehost_model import StorageHost
@@ -17,8 +19,6 @@ from api.models.dataset_model import Dataset
 from api.models.dpstep_model import DPStep
 from api.models.datacollection_model import DataCollection
 from api.models.ligand_model import Ligand
-
-# Define CRUD methods
 
 @csrf_exempt
 def connectConstructUser(request):

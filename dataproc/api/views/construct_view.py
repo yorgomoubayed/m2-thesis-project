@@ -2,22 +2,21 @@
 api application controllers to perform CRUD operations on the construct model
 """
 
-# Import Python libraries
+# Python imports 
 import json
 import logging
 
-# Import Django libraries
+# Django imports
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-# Import models
+# Models imports
 from api.models.construct_model import Construct
 
 # Activate logger
 logger = logging.getLogger('dataproc')
 # logger.info('TEMPLATE')
 
-# Define CRUD functions
 @csrf_exempt
 def indexConstruct(request):
 

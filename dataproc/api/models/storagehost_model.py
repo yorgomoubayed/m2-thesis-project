@@ -1,4 +1,4 @@
-from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 from uuid import uuid4
 
 class StorageHost(StructuredNode):

@@ -2,11 +2,11 @@
 api application's URL configuration. "urlpatterns" lists routes URLs to views.
 """
 
-# Import django libraries
+# Django imports
 from django.conf.urls import url
 from django.urls import path
 
-# Import CRUD functions from views modules
+# Views imports
 from api.views.autoPROC_view import *
 from api.views.buster_view import *
 from api.views.computationhost_view import *
@@ -35,8 +35,8 @@ from api.views.summaryout_view import *
 from api.views.user_view import *
 from api.views.relationships_view import *
 from api.views.input_view import *
-# Define url patterns
 
+# Define url patterns
 urlpatterns = [
 	
     path('storeInput', storeInput),

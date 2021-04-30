@@ -1,9 +1,9 @@
 """
-dataproc URL configuration
+dataproc URLs configuration
 urlpatterns list routes URLs to views
 """
 
-# Import django libraries
+# Django imports
 from django.contrib import admin
 from django.urls import path, include
 

@@ -4,8 +4,10 @@ For more information on this file, see https://docs.djangoproject.com/en/3.0/top
 For the full list of settings and their values, see https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-# Import python libraries
+# Python imports
 import os
+
+# Third-party imports
 from neomodel import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -32,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Third party applications
+    # Third-party applications
     'django_neomodel',
     'rest_framework',
 
@@ -70,7 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dataproc.wsgi.application'
 
-# Database. See https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# Default database settings. See https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -78,6 +80,7 @@ DATABASES = {
     }
 }
 
+# Neo4j database settings 
 NEOMODEL_NEO4J_BOLT_URL = os.environ.get('NEO4J_BOLT_URL','bolt://neo4j:neo4@localhost:7687')
 
 # Password validation. See https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

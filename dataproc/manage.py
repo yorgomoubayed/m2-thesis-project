@@ -4,7 +4,7 @@
 Django's command-line utility for administrative tasks
 """
 
-# Import python libraries
+# Python imports
 import os
 import sys
 

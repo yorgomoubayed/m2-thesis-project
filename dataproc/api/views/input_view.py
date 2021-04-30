@@ -15,6 +15,7 @@ from api.models.datacollection_model import DataCollection
 from api.models.construct_model import Construct
 from api.models.user_model import User
 from api.models.ocf_model import OCF
+# from api.models.ligand_model import Ligand
 
 # Activate logger
 logger=logging.getLogger('dataproc')
@@ -36,19 +37,27 @@ def storeInput(request):
         json_data_construct=json_data['construct']
         json_data_computationhost=json_data['computationHost']
         json_data_datacollection=json_data['dataCollection']
-        json_data_ocf=json_data['OCF']
+        # json_data_ocf=json_data['OCF']
         
-        try:
 
+        try:
+            # Register nodes
             storeParseDataset(json_data_dataset)
             storeParseStorageHost(json_data_storagehost)
             storeParseUser(json_data_user)
             storeParseConstruct(json_data_construct)
             storeParseComputationHost(json_data_computationhost)
             storeParseDataCollection(json_data_datacollection)
-            storeParseOCF(json_data_ocf)
+            # storeParseOCF(json_data_ocf)
 
-            return JsonResponse(json_data_construct)
+            # Register relationships 
+            connectConstructUser(json_data_construct, json_data_user)
+            connectConstructStorageHost(json_data_construct, json_data_storagehost)
+            connectConstructComputationHost(json_data_construct, json_data_computationhost)
+            connectDatasetConstruct(json_data_dataset, json_data_construct)
+            connectDatasetStorageHost(json_data_dataset, json_data_storagehost)
+            connectDataCollectionDataset(json_data_datacollection, json_data_dataset)
+
             return JsonResponse({"Status": "INPUT SUCCESSFULLY REGISTERED"})
 
         except :
@@ -87,7 +96,7 @@ def storeParseStorageHost(data):
 
     try:
         storagehost=StorageHost(ip=data['ip'],
-            # uuid=data['uuid'],
+            uuid=data['uuid'],
             hostName=data['hostName'],
             friendlyName=data['friendlyName'],
             workingDirectory=data['workingDirectory'])
@@ -102,7 +111,7 @@ def storeParseStorageHost(data):
 def storeParseComputationHost(data):
 
     """
-    Creates nodes for each computing host with relative properties
+    Creates nodes for each computation host with relative properties
     """
 
     try:
@@ -199,3 +208,108 @@ def storeParseOCF(data):
     except:
         print(sys.exc_info()[0])
         return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING OCF"})
+
+@csrf_exempt
+def connectConstructUser(data1, data2):
+
+    """
+    Create a relationship between a construct and a user
+    """
+    
+    try:
+        construct=Construct.nodes.get(name=data1["name"])
+        user=User.nodes.get(uuid=data2["uuid"])
+        return JsonResponse({"STATUS": construct.has_user.connect(user)}, safe=False)
+
+    except:
+        return JsonResponse({"STATUS": "ERROR OCCURRED WHILE CONNECTING CONSTRUCT TO USER"}, safe=False)
+
+@csrf_exempt
+def connectConstructStorageHost(data1, data2):
+    
+    """
+    Create a relationship between a construct and a storagehost
+    """
+    
+    try:
+        construct=Construct.nodes.get(name=data1["name"])
+        storagehost=StorageHost.nodes.get(uuid=data2["uuid"])
+        return JsonResponse({"STATUS": construct.has_storage_host.connect(storagehost)}, safe=False)
+
+    except:
+        return JsonResponse({"STATUS": "ERROR OCCURRED WHILE CONNECTING CONSTRUCT TO STORAGE HOST"}, safe=False)
+
+@csrf_exempt
+def connectConstructComputationHost(data1, data2):
+    
+    """
+    Create a relationship between a construct and a computationhost
+    """
+
+    try:
+        construct=Construct.nodes.get(uuid=data1["uuid"])
+        computationhost=ComputationHost.nodes.get(uuid=data2["uuid"])
+        return JsonResponse({"STATUS": construct.has_computation_host.connect(computationhost)}, safe=False)
+
+    except:
+        return JsonResponse({"STATUS": "ERROR OCCURRED WHILE CONNECTING CONSTRUCT TO COMPUTATION HOST"}, safe=False)
+
+@csrf_exempt
+def connectDatasetConstruct(data1, data2):
+    
+    """
+    Create a relationship between a dataset and a construct
+    """
+
+    try:
+        dataset=Dataset.nodes.get(uuid=data1["uuid"])
+        construct=Construct.nodes.get(uuid=data2["uuid"])
+        return JsonResponse({"STATUS": dataset.belongs.connect(construct)}, safe=False)
+
+    except:
+        return JsonResponse({"STATUS": "ERROR OCCURRED WHILE CONNECTING DATASET TO CONSTRUCT"}, safe=False)
+
+@csrf_exempt
+def connectDatasetStorageHost(data1, data2):
+
+    """
+    Create a relationship between a dataset and a storagehost
+    """
+
+    try:
+        dataset=Dataset.nodes.get(uuid=data1["uuid"])
+        storagehost=StorageHost.nodes.get(uuid=data2["uuid"])
+        return JsonResponse({"Status": dataset.stored.connect(storagehost)}, safe=False)
+
+    except:
+        return JsonResponse({"STATUS": "ERROR OCCURRED WHILE CONNECTING DATASET TO STORAGE HOST"}, safe=False)
+
+@csrf_exempt
+def connectDataCollectionDataset(data1, data2):
+    
+    """
+    Create a relationship between a datacollection and a dataset
+    """
+
+    try:
+        datacollection=DataCollection.nodes.get(uuid=data1["uuid"])
+        dataset=Dataset.nodes.get(uuid=data2["uuid"])
+        return JsonResponse({"STATUS": datacollection.generates.connect(dataset)}, safe=False)
+
+    except:
+        return JsonResponse({"STATUS": "ERROR OCCURRED WHILE CONNECTING DATA COLLECTION TO DATASET"}, safe=False)
+
+# @csrf_exempt
+# def connectLigandDataset(data1, data2):
+    
+#     """
+#     Create a relationship between a ligand and a dataset
+#     """
+
+#     try:
+#         ligand=Ligand.nodes.get(uuid=data1["uuid"])
+#         dataset=Dataset.nodes.get(uuid=data2["uuid"])
+#         return JsonResponse({"STATUS": ligand.associated.connect(dataset)}, safe=False)
+
+#     except:
+#         return JsonResponse({"STATUS": "ERROR OCCURRED WHILE CONNECTING LIGAND TO DATASET"}, safe=False)

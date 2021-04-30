@@ -1,8 +1,10 @@
-# Import libraries
-from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
+# Python imports
 from uuid import uuid4
 
-# Improt models
+# Third-party imports
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
+
+# Models imports
 from api.models.reflectionstructurefactors_model import RefelctionStructureFactors
 from api.models.coordinates_model import Coordinates
 
@@ -32,7 +34,7 @@ class OCF(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
+			'ocf_node_properties': {
 				'uuid': self.uuid,
 				'userUuid': self.userUuid,
 				'name': self.name,

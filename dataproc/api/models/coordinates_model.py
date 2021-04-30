@@ -1,4 +1,8 @@
-from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
+# Python imports
+from uuid import uuid4
+
+# Third-party imports
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 
 # from api.models.pdbfile_model import PDBFile
 # from api.models.mmciffile_model import mmCIFFile
@@ -6,6 +10,13 @@ from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdPro
 # from api.models.reference_model import Reference
 
 class Coordinates(StructuredNode):
+	
+	"""
+	Defines node properties and relationships
+	Provides data serializer
+	"""
+	
+	# Properties
 	coordinates_source=StringProperty(unique_index=True, required=True)
 	coordinates_filesize=StringProperty()
 	coordinates_filepath=StringProperty()
@@ -27,7 +38,7 @@ class Coordinates(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
+			'coordinates_node_properties': {
 				'coordinates_source': self.coordinates_source,
 				'coordinates_filesize': self.coordinates_filesize,
 				'coordinates_filepath': self.coordinates_filepath,

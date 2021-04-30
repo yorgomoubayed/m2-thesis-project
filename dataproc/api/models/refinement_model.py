@@ -1,7 +1,19 @@
-from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo, DateTimeProperty
+# Python imports
 from uuid import uuid4
 
+# Third-party imports
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo, DateTimeProperty
+
+# Models imports
+
 class Refinement(StructuredNode):
+ 	
+ 	"""
+ 	Defines node properties and relationships
+ 	Provides data serializer
+ 	"""
+
+ 	# Properties
  	uuid=StringProperty(unique_index=True, default=uuid4)
  	dp_step_name=StringProperty()
  	created_at=DateTimeProperty()

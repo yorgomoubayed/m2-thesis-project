@@ -1,12 +1,21 @@
-from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo, DateTimeProperty
+# Python imports
 from uuid import uuid4
 
+# Third-party imports
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
+
+# Models imports
 from api.models.dpstep_model import DPStep
 from api.models.storagehost_model import StorageHost
 from api.models.construct_model import Construct
 
 class Dataset(StructuredNode):
  	
+ 	"""
+ 	Defines node properties and relationships
+ 	Provides data serializer
+ 	"""
+
  	# Properties
  	uuid=StringProperty(unique_index=True, default=uuid4)
  	fileTemplateName=StringProperty()

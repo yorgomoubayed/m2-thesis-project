@@ -1,10 +1,22 @@
-from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
+# Python imports
+from uuid import uuid4
 
+# Third-party imports
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
+
+# Models imports
 from api.models.statisticalreport_model import StatisticalReport
 from api.models.summaryout_model import SummaryOut
 from api.models.summaryhtml_model import SummaryHtml
 
 class Report(StructuredNode):
+	
+	"""
+	Defines node properties and relationships
+	Provides data serializer
+	"""
+
+	# Properties
 	report_path=StringProperty()
 	report_source=StringProperty()
 	report_size=StringProperty()

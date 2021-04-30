@@ -1,8 +1,10 @@
-# Import libraries
-from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
+# Python imports
 from uuid import uuid4
 
-# Import models
+# Third-party imports
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
+
+# Models imports
 from api.models.dataset_model import Dataset
 
 class DataCollection(StructuredNode):
@@ -34,7 +36,7 @@ class DataCollection(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
+			'datacollection_node_properties': {
 				"uuid": self.uuid,
 				"imagesNumber": self.imagesNumber,
 				"flux": self.flux,

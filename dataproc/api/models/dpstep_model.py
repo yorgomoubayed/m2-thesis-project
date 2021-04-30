@@ -1,6 +1,10 @@
-from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
+# Python imports
 from uuid import uuid4
 
+# Third-party imports
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
+
+# Models imports
 from api.models.ligandsfitting_model import LigandsFitting
 from api.models.refinement_model import Refinement
 from api.models.postrefinement_model import PostRefinement
@@ -18,6 +22,12 @@ from api.models.reference_model import Reference
 
 class DPStep(StructuredNode):
 	
+	"""
+	Defines node properties and relationships
+	Provides data serializer
+	"""
+
+	# Properties
 	uuid=StringProperty(unique_index=True, default=uuid4)
 	name=StringProperty()
 	
@@ -41,20 +51,8 @@ class DPStep(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
+			'dpstep_node_properties': {
 				'uuid': self.uuid,
-				'tool_name': self.name,
+				'name': self.name,
 			},
 		}
-# class Coordinates(StructuredNode):
-#  	coordinates_source=StringProperty(unique_index=True, required=True)
-#  	coordinates_filesize=StringProperty(unique_index=True, required=True)
-#  	coordinates_filepath=StringProperty(unique_index=True, required=True)
-
-#  	# Relationships
-#  	input_as_ref=RelationshipTo(DPStep, 'INPUT_AS_REFERENCE')
-#  	input_of=RelationshipTo(DPStep, 'INPUT')
-#  	has_pdb=RelationshipTo(PDBFile, 'HAS')
-#  	has_mmcif=RelationshipTo(mmCIFFile, 'HAS')
-#  	belongs=RelationshipTo(Construct, 'BELONGS')
-#  	labelled=RelationshipTo(Reference, 'LABELLED')

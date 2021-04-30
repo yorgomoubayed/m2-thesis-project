@@ -1,5 +1,8 @@
-from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdProperty, RelationshipTo
+# Python imports
+from uuid import uuid4
 
+# Third-party imports
+from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 # from api.models.dpstep_model import DPStep
 # from api.models.mtzfile_model import MTZfile
 # from api.models.scalepackfile_model import ScalepackFile
@@ -8,6 +11,13 @@ from neomodel import StructuredNode, StringProperty, IntegerProperty,UniqueIdPro
 
 
 class RefelctionStructureFactors(StructuredNode):
+	
+	"""
+	Defines node properties and relationships
+	Provides data serializer
+	"""
+
+	# Properties
 	rsf_source=StringProperty()
 	rsf_filesize=StringProperty()
 	rsf_filepath=StringProperty()

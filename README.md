@@ -29,13 +29,13 @@ pip freeze > requirements.txt
 
 ## Django's most important command lines
 
-This command is used to create a project
+This command creates a project
 ~~~
 django-admin startproject <project name>
 django-admin.py startproject <project name>
 ~~~
 
-This command is used to create an application inside a project
+This command creates an application inside a project
 ~~~
 python manage.py <app name>
 ~~~

@@ -22,7 +22,7 @@ class Reference(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
-				'uuid': self.uuid,
-			},
+		'node_properties': {
+		'uuid': self.uuid,
+		},
 		}

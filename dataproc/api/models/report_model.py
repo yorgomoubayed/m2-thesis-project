@@ -34,9 +34,9 @@ class Report(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
-				'report_path': self.report_path,
-				'report_source': self.report_source,
-				'report_size': self.report_size,
-			},
+		'node_properties': {
+		'report_path': self.report_path,
+		'report_source': self.report_source,
+		'report_size': self.report_size,
+		},
 		}

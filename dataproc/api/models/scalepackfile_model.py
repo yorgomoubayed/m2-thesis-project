@@ -22,9 +22,9 @@ class ScalepackFile(StructuredNode):
 		Serializer for node properties
 		"""
 		
-	    return {
-	        'node_properties': {
-	            'uuid': self.uuid,
-	            'rsf_filetype': self.rsf_filetype,
-	        },
-	    }
+		return {
+		'node_properties': {
+		'uuid': self.uuid,
+		'rsf_filetype': self.rsf_filetype,
+		},
+		}

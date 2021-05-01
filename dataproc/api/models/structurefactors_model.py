@@ -3,14 +3,15 @@ from uuid import uuid4
 
 # Third-party imports
 from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
+
+# Models imports
 # from api.models.dpstep_model import DPStep
 # from api.models.mtzfile_model import MTZfile
 # from api.models.scalepackfile_model import ScalepackFile
 # from api.models.reference_model import Reference
 # from api.models.construct_model import Construct
 
-
-class RefelctionStructureFactors(StructuredNode):
+class StructureFactors(StructuredNode):
 	
 	"""
 	Defines node properties and relationships
@@ -38,9 +39,9 @@ class RefelctionStructureFactors(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
-				'rsf_source': self.rsf_source,
-				'rsf_filesize': self.rsf_filesize,
-				'rsf_filepath': self.rsf_filepath,
-			},
+		'node_properties': {
+		'rsf_source': self.rsf_source,
+		'rsf_filesize': self.rsf_filesize,
+		'rsf_filepath': self.rsf_filepath,
+		},
 		}

@@ -23,8 +23,8 @@ class PDBFile(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
-				'uuid': self.uuid,
-				'coordinates_filetype': self.coordinates_filetype,
-			},
+		'node_properties': {
+		'uuid': self.uuid,
+		'coordinates_filetype': self.coordinates_filetype,
+		},
 		}

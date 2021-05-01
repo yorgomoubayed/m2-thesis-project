@@ -23,7 +23,7 @@ class Buster(StructuredNode):
 		"""
 		
 		return {
-			'buster_node_properties': {
-				'uuid': self.uuid,
-			},
+		'buster_node_properties': {
+		'uuid': self.uuid,
+		},
 		}

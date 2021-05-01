@@ -4,17 +4,16 @@ from uuid import uuid4
 # Third-party imports
 from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 
-class mmCIFFile(StructuredNode):
+class Failed(StructuredNode):
 	
 	"""
 	Defines node properties and relationships
 	Provides data serializer
 	"""
-
+	
 	# Properties
 	uuid=StringProperty(unique_index=True, default=uuid4)
-	coordinates_filetype=StringProperty()
-
+	
 	@property
 	def serialize(self):
 
@@ -23,8 +22,7 @@ class mmCIFFile(StructuredNode):
 		"""
 		
 		return {
-		'mmcif_node_properties': {
+		'failed_node_properties': {
 		'uuid': self.uuid,
-		'coordinates_filetype': self.coordinates_filetype,
 		},
 		}

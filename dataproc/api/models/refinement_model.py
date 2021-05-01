@@ -4,8 +4,6 @@ from uuid import uuid4
 # Third-party imports
 from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo, DateTimeProperty
 
-# Models imports
-
 class Refinement(StructuredNode):
  	
  	"""

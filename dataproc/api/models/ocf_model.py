@@ -5,7 +5,7 @@ from uuid import uuid4
 from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 
 # Models imports
-from api.models.reflectionstructurefactors_model import RefelctionStructureFactors
+from api.models.structurefactors_model import StructureFactors
 from api.models.coordinates_model import Coordinates
 
 class OCF(StructuredNode):
@@ -23,7 +23,7 @@ class OCF(StructuredNode):
 	priority=IntegerProperty()
 
 	# Relationships
-	has_rsf=RelationshipTo(RefelctionStructureFactors, 'HAS')
+	has_rsf=RelationshipTo(StructureFactors, 'HAS')
 	has_coordinates=RelationshipTo(Coordinates, 'HAS')
 
 	@property
@@ -34,11 +34,11 @@ class OCF(StructuredNode):
 		"""
 		
 		return {
-			'ocf_node_properties': {
-				'uuid': self.uuid,
-				'userUuid': self.userUuid,
-				'name': self.name,
-				'pipedreamCommand': self.pipedreamCommand,
-				'priority': self.priority,
-			},
+		'ocf_node_properties': {
+		'uuid': self.uuid,
+		'userUuid': self.userUuid,
+		'name': self.name,
+		'pipedreamCommand': self.pipedreamCommand,
+		'priority': self.priority,
+		},
 		}

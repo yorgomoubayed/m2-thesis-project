@@ -13,7 +13,6 @@ class Rhofit(StructuredNode):
 
 	# Properties
 	uuid=StringProperty(unique_index=True, default=uuid4)
-	tool_name=StringProperty()
 
 	@property
 	def serialize(self):
@@ -23,8 +22,7 @@ class Rhofit(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
-				'uuid': self.uuid,
-				'tool_name': self.tool_name,
-			},
+		'node_properties': {
+		'uuid': self.uuid,
+		},
 		}

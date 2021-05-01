@@ -23,8 +23,8 @@ class SummaryOut(StructuredNode):
 		"""
 		
 		return {
-			'summaryout_node_properties': {
-				'uuid': self.uuid,
-				'report_name': self.report_name,
-			},
+		'summaryout_node_properties': {
+		'uuid': self.uuid,
+		'report_name': self.report_name,
+		},
 		}

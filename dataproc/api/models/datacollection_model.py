@@ -36,15 +36,15 @@ class DataCollection(StructuredNode):
 		"""
 		
 		return {
-			'datacollection_node_properties': {
-				"uuid": self.uuid,
-				"imagesNumber": self.imagesNumber,
-				"flux": self.flux,
-				"resolution": self.resolution,
-				"wavelength": self.wavelength,
-				"transmission": self.transmission,
-				"exposureTime": self.exposureTime,
-				"detectorDistance": self.detectorDistance ,
-				"beamlineName": self.beamlineName,
-			},
+		'datacollection_node_properties': {
+		"uuid": self.uuid,
+		"imagesNumber": self.imagesNumber,
+		"flux": self.flux,
+		"resolution": self.resolution,
+		"wavelength": self.wavelength,
+		"transmission": self.transmission,
+		"exposureTime": self.exposureTime,
+		"detectorDistance": self.detectorDistance ,
+		"beamlineName": self.beamlineName,
+		},
 		}

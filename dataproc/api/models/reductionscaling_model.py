@@ -25,10 +25,10 @@ class ReductionScaling(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
-				'uuid': self.uuid,
-				'dp_step_name': self.dp_step_name,
-				'created_at': self.created_at,
-				'updated_at': self.updated_at,
-			},
+		'node_properties': {
+		'uuid': self.uuid,
+		'dp_step_name': self.dp_step_name,
+		'created_at': self.created_at,
+		'updated_at': self.updated_at,
+		},
 		}

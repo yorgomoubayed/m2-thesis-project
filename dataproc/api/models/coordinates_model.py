@@ -4,6 +4,7 @@ from uuid import uuid4
 # Third-party imports
 from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 
+# Models imports
 # from api.models.pdbfile_model import PDBFile
 # from api.models.mmciffile_model import mmCIFFile
 # from api.models.construct_model import Construct
@@ -29,7 +30,6 @@ class Coordinates(StructuredNode):
 	belongs=RelationshipTo('api.models.construct_model.Construct', 'BELONGS')
 	labelled=RelationshipTo('api.models.reference_model.Reference', 'LABELLED')
 
-
 	@property
 	def serialize(self):
 
@@ -38,9 +38,9 @@ class Coordinates(StructuredNode):
 		"""
 		
 		return {
-			'coordinates_node_properties': {
-				'coordinates_source': self.coordinates_source,
-				'coordinates_filesize': self.coordinates_filesize,
-				'coordinates_filepath': self.coordinates_filepath,
-			},
+		'coordinates_node_properties': {
+		'coordinates_source': self.coordinates_source,
+		'coordinates_filesize': self.coordinates_filesize,
+		'coordinates_filepath': self.coordinates_filepath,
+		},
 		}

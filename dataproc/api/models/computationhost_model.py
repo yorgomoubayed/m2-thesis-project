@@ -4,7 +4,6 @@ from uuid import uuid4
 # Third-party imports
 from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 
-
 class ComputationHost(StructuredNode):
 	
 	"""
@@ -27,11 +26,11 @@ class ComputationHost(StructuredNode):
 		"""
 		
 		return {
-			'computationhost_node_properties': {
-				'ip': self.ip,
-				'uuid': self.uuid,
-				'hostName': self.hostName,
-				'friendlyName': self.friendlyName,
-				'workingDirectory': self.workingDirectory,
-			},
+		'computationhost_node_properties': {
+		'ip': self.ip,
+		'uuid': self.uuid,
+		'hostName': self.hostName,
+		'friendlyName': self.friendlyName,
+		'workingDirectory': self.workingDirectory,
+		},
 		}

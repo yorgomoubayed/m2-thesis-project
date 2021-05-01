@@ -4,7 +4,6 @@ from uuid import uuid4
 # Third-party imports
 from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 
-
 class User(StructuredNode):
 	
 	"""
@@ -17,10 +16,10 @@ class User(StructuredNode):
 
 	@property
 	def serialize(self):
-	    return {
-	        'user_node_properties': {
-	            'uuid': self.uuid
-	        },
-	    }
+		return {
+		'user_node_properties': {
+		'uuid': self.uuid
+		},
+		}
 
 

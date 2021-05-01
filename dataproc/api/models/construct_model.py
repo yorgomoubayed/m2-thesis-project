@@ -4,7 +4,6 @@ from uuid import uuid4
 # Third-party imports
 from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 
-
 # Models imports
 from api.models.ocf_model import OCF
 from api.models.storagehost_model import StorageHost
@@ -31,13 +30,18 @@ class Construct(StructuredNode):
 
 	@property
 	def serialize(self):
-	    return {
-	        'construct_node_properties': {
-	            'uuid': self.uuid,
-	            'userUuid': self.userUuid,
-	            'name': self.name,
-	        },
-	    }
+
+		"""
+		Serializer for node properties
+		"""
+
+		return {
+		'construct_node_properties': {
+		'uuid': self.uuid,
+		'userUuid': self.userUuid,
+		'name': self.name,
+		},
+		}
 
 	# @property
 	# def serialize_connections(self):

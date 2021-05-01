@@ -22,9 +22,9 @@ class MTZfile(StructuredNode):
 		Serializer for node properties
 		"""
 		
-	    return {
-	        'mtz_node_properties': {
-	            'uuid': self.uuid,
-	            'rsf_filetype': self.rsf_filetype,
-	        },
-	    }
+		return {
+		'mtz_node_properties': {
+		'uuid': self.uuid,
+		'rsf_filetype': self.rsf_filetype,
+		},
+		}

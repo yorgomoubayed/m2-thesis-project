@@ -23,8 +23,8 @@ class SummaryHtml(StructuredNode):
 		"""
 		
 		return {
-			'summaryhtml_node_properties': {
-				'uuid': self.uuid,
-				'report_name': self.report_name,
-			},
+		'summaryhtml_node_properties': {
+		'uuid': self.uuid,
+		'report_name': self.report_name,
+		},
 		}

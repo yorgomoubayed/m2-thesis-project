@@ -29,8 +29,8 @@ class Ligand(StructuredNode):
 		"""
 		
 		return {
-			'node_properties': {
-				'uuid': self.uuid,
-				'name': self.name,
-			},
+		'node_properties': {
+		'uuid': self.uuid,
+		'name': self.name,
+		},
 		}

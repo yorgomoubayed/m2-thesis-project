@@ -36,7 +36,6 @@ from api.views.user_view import *
 from api.views.relationships_view import *
 from api.views.input_view import *
 
-# Define url patterns
 urlpatterns = [
 	
     path('storeInput', storeInput),

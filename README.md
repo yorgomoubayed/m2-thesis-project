@@ -80,7 +80,7 @@ Delete all nodes in the database.
 python manage.py clear_neo4j
 ~~~
 
-## Links to official documentations
+## Links to documentations
 
 * **Django:** <https://docs.djangoproject.com/en/3.1/>
 * **Neomodel:** <https://neomodel.readthedocs.io/en/latest/>

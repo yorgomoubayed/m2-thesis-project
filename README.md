@@ -27,52 +27,57 @@ pip install -r requirements.txt
 pip freeze > requirements.txt
 ~~~
 
-## Django's most important command lines
+## Django command lines
 
-This command creates a project
+Create a project
 ~~~
 django-admin startproject <project name>
 django-admin.py startproject <project name>
 ~~~
 
-This command creates an application inside a project
+Create an application inside a project
 ~~~
 python manage.py <app name>
 ~~~
 
-This command applies migrations
+Apply migrations
 ~~~
 python manage.py migrate
 ~~~
 
-This command creates new migrations based on the changes you have made to your models
+Create new migrations based on the changes made to the models
 ~~~
 python manage.py makemigrations
 ~~~
 
-This command opens a python shell to test query sets
+Open a python shell to test query sets
 ~~~
 python manage.py shell
 ~~~
 
-This command runs an emulated server on your local machine
+Run an emulated server on the local machine
 ~~~
 python manage.py runserver <optional port number>
 ~~~
 
-This command creates a super user to access the admin panel
+Create a super user to access the admin panel
 ~~~
 python manage.py createsuperuser
 ~~~
 
-This command creates a cache table 
+Create a cache table 
 ~~~
 python manage.py createcachetable
 ~~~
 
-This command applies neomodel constraints
+Apply constraints and indexes on labels for the node definitions. This should be executed after any schema changes
 ~~~
 python manage.py install_labels 
+~~~
+
+Delete all nodes in the database.
+~~~
+python manage.py clear_neo4j
 ~~~
 
 ## Links to official documentations

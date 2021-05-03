@@ -22,7 +22,7 @@ from api.views.ocf_view import *
 from api.views.pdbfile_view import *
 from api.views.postrefinement_view import *
 from api.views.reductionscaling_view import *
-from api.views.reductionstructurefactors_view import *
+from api.views.structurefactors_view import *
 from api.views.reference_view import *
 from api.views.refinement_view import *
 from api.views.report_view import *

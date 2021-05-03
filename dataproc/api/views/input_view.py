@@ -1,4 +1,4 @@
-# Python improts
+# Python imports
 import json
 import logging
 import sys
@@ -6,9 +6,6 @@ import sys
 # Django imports
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
-# Third-party imports
-# from neomodel import db
 
 # Models imports
 from api.models.dataset_model import Dataset
@@ -18,7 +15,6 @@ from api.models.datacollection_model import DataCollection
 from api.models.construct_model import Construct
 from api.models.user_model import User
 from api.models.ocf_model import OCF
-# from api.models.ligand_model import Ligand
 
 # Activate logger
 logger=logging.getLogger('dataproc')
@@ -34,32 +30,31 @@ def storeInput(request):
     if request.method=='POST':
         json_data=json.loads(request.body)
         
-        json_data_dataset=json_data['dataset']
-        json_data_storagehost=json_data['storageHost']
-        json_data_user=json_data['user']
+        # json_data_dataset=json_data['dataset']
+        # json_data_storagehost=json_data['storageHost']
+        # json_data_user=json_data['user']
         json_data_construct=json_data['construct']
-        json_data_computationhost=json_data['computationHost']
-        json_data_datacollection=json_data['dataCollection']
+        # json_data_computationhost=json_data['computationHost']
+        # json_data_datacollection=json_data['dataCollection']
         json_data_ocf=json_data['OCF']
-        json_data_ocf=json_data['construct']
 
         try:
             # Register nodes
-            storeParseDataset(json_data_dataset)
-            storeParseStorageHost(json_data_storagehost)
-            storeParseUser(json_data_user)
+            # storeParseDataset(json_data_dataset)
+            # storeParseStorageHost(json_data_storagehost)
+            # storeParseUser(json_data_user)
             storeParseConstruct(json_data_construct)
-            storeParseComputationHost(json_data_computationhost)
-            storeParseDataCollection(json_data_datacollection)
+            # storeParseComputationHost(json_data_computationhost)
+            # storeParseDataCollection(json_data_datacollection)
             storeParseOCF(json_data_ocf)
 
             # Register relationships 
-            connectConstructUser(json_data_construct, json_data_user)
-            connectConstructStorageHost(json_data_construct, json_data_storagehost)
-            connectConstructComputationHost(json_data_construct, json_data_computationhost)
-            connectDatasetConstruct(json_data_dataset, json_data_construct)
-            connectDatasetStorageHost(json_data_dataset, json_data_storagehost)
-            connectDataCollectionDataset(json_data_datacollection, json_data_dataset)
+            # connectConstructUser(json_data_construct, json_data_user)
+            # connectConstructStorageHost(json_data_construct, json_data_storagehost)
+            # connectConstructComputationHost(json_data_construct, json_data_computationhost)
+            # connectDatasetConstruct(json_data_dataset, json_data_construct)
+            # connectDatasetStorageHost(json_data_dataset, json_data_storagehost)
+            # connectDataCollectionDataset(json_data_datacollection, json_data_dataset)
 
             return JsonResponse({"Status": "INPUT SUCCESSFULLY REGISTERED"})
 
@@ -89,45 +84,6 @@ def storeParseDataset(data):
     except:
         print(sys.exc_info()[0])
         return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING DATASET"})
-
-# @csrf_exempt
-# def storeParseDataset(data):
-
-#     """
-#     Creates nodes for each dataset with relative properties
-#     """
-
-#     try:
-#         Dataset.create_or_update(uuid=data['uuid'],
-#             userUuid=data['userUuid'], 
-#             crystalUuid=data['crystalUuid'],
-#             currentPath=data['currentPath'],
-#             generationPath=data['generationPath'],
-#             fileTemplateName=data['fileTemplateName'],
-#             blStartingDate=data['blStartingDate'],
-#             beamlineName=data['beamlineName'],
-#             facilityName=data['facilityName'])
-        
-#         # dataset.save()
-
-#         # if dataset == None:
-#         #     datasetNew = Dataset(uuid=data['uuid'],
-#         #         userUuid=data['userUuid'], 
-#         #         crystalUuid=data['crystalUuid'],
-#         #         currentPath=data['currentPath'],
-#         #         generationPath=data['generationPath'],
-#         #         fileTemplateName=data['fileTemplateName'],
-#         #         blStartingDate=data['blStartingDate'],
-#         #         beamlineName=data['beamlineName'],
-#         #         facilityName=data['facilityName'])
-
-#         #     datasetNew.save()
-
-#         return JsonResponse({"Status": "INPUT REGISTERED"})
-
-#     except:
-#         print(sys.exc_info()[0])
-#         return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING DATASET"})
 
 @csrf_exempt
 def storeParseStorageHost(data):
@@ -236,7 +192,6 @@ def storeParseOCF(data):
 
     try:
         for input_ocf in data:
-
             ocf=OCF(uuid=input_ocf['uuid'],
                 userUuid=input_ocf['userUuid'],
                 name=input_ocf['name'],

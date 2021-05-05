@@ -40,7 +40,8 @@ class Dataset(StructuredNode):
  		"""
  		
  		return {
- 		'dataset_node_properties': {
+ 		'dataset_node_properties': 
+ 		{
  		'uuid': self.uuid,
  		'fileTemplateName': self.fileTemplateName,
  		'userUuid': self.userUuid,

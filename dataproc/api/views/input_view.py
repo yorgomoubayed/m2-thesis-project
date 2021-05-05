@@ -31,33 +31,36 @@ def storeInput(request):
         json_data=json.loads(request.body)
         
         json_data_dataset=json_data['dataset']
-        # json_data_storagehost=json_data['storageHost']
-        # json_data_user=json_data['user']
-        # json_data_construct=json_data['construct']
-        # json_data_computationhost=json_data['computationHost']
-        # json_data_datacollection=json_data['dataCollection']
-        # json_data_ocf=json_data['OCF']
+        json_data_storagehost=json_data['storageHost']
+        json_data_user=json_data['user']
+        json_data_construct=json_data['construct']
+        json_data_computationhost=json_data['computationHost']
+        json_data_datacollection=json_data['dataCollection']
+        json_data_ocf=json_data['construct']['OCF']
 
         try:
             # Register nodes
             storeParseDataset(json_data_dataset)
-            # storeParseStorageHost(json_data_storagehost)
-            # storeParseUser(json_data_user)
-            # storeParseConstruct(json_data_construct)
-            # storeParseComputationHost(json_data_computationhost)
-            # storeParseDataCollection(json_data_datacollection)
-            # storeParseOCF(json_data_ocf)
+            storeParseStorageHost(json_data_storagehost)
+            storeParseUser(json_data_user)
+            storeParseConstruct(json_data_construct)
+            storeParseComputationHost(json_data_computationhost)
+            storeParseDataCollection(json_data_datacollection)
+            storeParseOCF(json_data_ocf)
 
             # Register relationships 
-            # connectConstructUser(json_data_construct, json_data_user)
-            # connectConstructStorageHost(json_data_construct, json_data_storagehost)
-            # connectConstructComputationHost(json_data_construct, json_data_computationhost)
-            # connectDatasetConstruct(json_data_dataset, json_data_construct)
-            # connectDatasetStorageHost(json_data_dataset, json_data_storagehost)
-            # connectDataCollectionDataset(json_data_datacollection, json_data_dataset)
+            connectConstructUser(json_data_construct, json_data_user)
+            connectConstructStorageHost(json_data_construct, json_data_storagehost)
+            connectConstructComputationHost(json_data_construct, json_data_computationhost)
+            connectDatasetConstruct(json_data_dataset, json_data_construct)
+            connectDatasetStorageHost(json_data_dataset, json_data_storagehost)
+            connectDataCollectionDataset(json_data_datacollection, json_data_dataset)
+
+            for input_ocf in json_data_ocf:
+                connectConstructOCF(json_data_construct, input_ocf)
 
             return JsonResponse({"Status": "INPUT SUCCESSFULLY REGISTERED"})
-
+        
         except :
             return JsonResponse({"Status":"ERROR OCCURRED"}, safe=False)
 
@@ -69,7 +72,7 @@ def storeParseDataset(data):
     """
 
     try:
-        dataset=Dataset.get_or_create(uuid=data['uuid'],
+        dataset=Dataset(uuid=data['uuid'],
             userUuid=data['userUuid'], 
             crystalUuid=data['crystalUuid'],
             currentPath=data['currentPath'],
@@ -84,6 +87,22 @@ def storeParseDataset(data):
     except:
         print(sys.exc_info()[0])
         return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING DATASET"})
+
+# @csrf_exempt
+# def storeParseDataset(data):
+
+#     """
+#     Creates nodes for each dataset with relative properties
+#     """
+
+#     try:
+#         # dataset=Dataset.create_or_update({"uuid": data['uuid']}, {"facilityName": data['facilityName']})
+#         Dataset.create_or_update(data.serialize)
+#         return dataset
+    
+#     except:
+#         print(sys.exc_info()[0])
+#         return ({"STATUS": "ERROR OCCURRED WHILE REGISTERING DATASET"})
 
 @csrf_exempt
 def storeParseStorageHost(data):
@@ -292,6 +311,22 @@ def connectDataCollectionDataset(data1, data2):
         datacollection=DataCollection.nodes.get(uuid=data1["uuid"])
         dataset=Dataset.nodes.get(uuid=data2["uuid"])
         return JsonResponse({"STATUS": datacollection.generates.connect(dataset)}, safe=False)
+
+    except:
+        return JsonResponse({"STATUS": "ERROR OCCURRED WHILE CONNECTING DATA COLLECTION TO DATASET"}, safe=False)
+
+@csrf_exempt
+def connectConstructOCF(data1, data2):
+    
+    """
+    Create a relationship between a construct and an ocf
+    """
+
+    try:
+        construct=Construct.nodes.get(uuid=data1["uuid"])
+        ocf=OCF.nodes.get(uuid=data2["uuid"])
+
+        return JsonResponse({"STATUS": construct.has_ocf.connect(ocf)}, safe=False)
 
     except:
         return JsonResponse({"STATUS": "ERROR OCCURRED WHILE CONNECTING DATA COLLECTION TO DATASET"}, safe=False)

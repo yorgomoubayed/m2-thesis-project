@@ -30,23 +30,23 @@ def storeInput(request):
     if request.method=='POST':
         json_data=json.loads(request.body)
         
-        # json_data_dataset=json_data['dataset']
+        json_data_dataset=json_data['dataset']
         # json_data_storagehost=json_data['storageHost']
         # json_data_user=json_data['user']
-        json_data_construct=json_data['construct']
+        # json_data_construct=json_data['construct']
         # json_data_computationhost=json_data['computationHost']
         # json_data_datacollection=json_data['dataCollection']
-        json_data_ocf=json_data['OCF']
+        # json_data_ocf=json_data['OCF']
 
         try:
             # Register nodes
-            # storeParseDataset(json_data_dataset)
+            storeParseDataset(json_data_dataset)
             # storeParseStorageHost(json_data_storagehost)
             # storeParseUser(json_data_user)
-            storeParseConstruct(json_data_construct)
+            # storeParseConstruct(json_data_construct)
             # storeParseComputationHost(json_data_computationhost)
             # storeParseDataCollection(json_data_datacollection)
-            storeParseOCF(json_data_ocf)
+            # storeParseOCF(json_data_ocf)
 
             # Register relationships 
             # connectConstructUser(json_data_construct, json_data_user)
@@ -69,7 +69,7 @@ def storeParseDataset(data):
     """
 
     try:
-        dataset=Dataset(uuid=data['uuid'],
+        dataset=Dataset.get_or_create(uuid=data['uuid'],
             userUuid=data['userUuid'], 
             crystalUuid=data['crystalUuid'],
             currentPath=data['currentPath'],

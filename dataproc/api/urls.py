@@ -38,7 +38,7 @@ from api.views.input_view import *
 
 urlpatterns = [
 	
-    path('storeInput', storeInput),
+    path('storeInput', storeInput, name="store_input"),
 
     # # autoPROC urlpatterns
     # path('indexautoPROC', indexautoPROC),

@@ -59,10 +59,10 @@ def storeInput(request):
             for input_ocf in json_data_ocf:
                 connectConstructOCF(json_data_construct, input_ocf)
 
-            return JsonResponse({"Status": "INPUT SUCCESSFULLY REGISTERED"})
+            return JsonResponse({"STATUS": "INPUT SUCCESSFULLY REGISTERED"})
         
         except :
-            return JsonResponse({"Status":"ERROR OCCURRED"}, safe=False)
+            return JsonResponse({"STATUS":"ERROR OCCURRED"}, safe=False)
 
 @csrf_exempt
 def storeParseDataset(data):

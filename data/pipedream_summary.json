@@ -1,0 +1,269 @@
+{
+   "GPhL_pipedream" : {
+      "command" : "pipedream  -nthreads 6 -rhofit /crimsXdata/CRIMS-ARCHITECTURE/REFERENCE-MODELS/merck/2020/20201001_proxima1/cifs/1_c617989dstructure.cif -xyzin /crimsXdata/CRIMS-ARCHITECTURE/REFERENCE-MODELS/merck/2020/20201001_proxima1/pded-20201001-px1-894d59aa/pipedream-phenix-raph-0e66e23c/apo_model.pdb -hklref /crimsXdata/CRIMS-ARCHITECTURE/REFERENCE-MODELS/merck/2020/20201001_proxima1/pded-20201001-px1-894d59aa/pipedream-phenix-raph-0e66e23c/apo_model.mtz -rhothorough -postthorough -h5master P-41312/X-33483/D-3120/PDEd-CD028448_C7-4_MSC2355255A-1_1_master.h5 -d /crimsXdata/CRIMS-ARCHITECTURE/DATA-PROCESSING/merck/2020/20201001_proxima1/P-41312/X-33483/D-3120_pipedream4",
+      "jsonversion" : "0.0.1",
+      "runby" : "crimsrobot : inext1 : 16:50:18 on Wed Mar 17 2021",
+      "runfrom" : "/crimsXdata/CRIMS-ARCHITECTURE/IMAGES/merck/2020/20201001_proxima1",
+      "jobid" : "5fcfe238-cc8d-4466-8679-9a5136486bbb",
+      "output" : "/crimsXdata/CRIMS-ARCHITECTURE/IMAGES/merck/2020/20201001_proxima1//crimsXdata/CRIMS-ARCHITECTURE/DATA-PROCESSING/merck/2020/20201001_proxima1/P-41312/X-33483/D-3120_pipedream4",
+      "version" : "1.3.0  <2021-02-24>"
+   },
+   "ligandfitting" : {
+      "type" : "Rhofit",
+      "ligands" : {
+         "1" : {
+            "validationstatistics" : {
+               "ligandstatistics" : {
+                  "1" : {
+                     "ligandomin" : "1.00",
+                     "mogulzbond" : "0.374",
+                     "ligandbmin" : " 21.85",
+                     "mogulring" : "0/4",
+                     "moguldihe" : "0/6",
+                     "ligandbavg" : "29.06",
+                     "mogulangl" : "0/45",
+                     "mogulbond" : "0/38",
+                     "ligandbmax" : " 36.51",
+                     "ligandid" : "LIG A4000",
+                     "ligandomax" : "1.00",
+                     "ligandcc" : "0.927",
+                     "mogulzangl" : "0.550"
+                  }
+               },
+               "molprobity" : {
+                  "molprobitypercentile" : "(percentile: 49.7 N=48274, 1.80A+/-0.25A) ",
+                  "ramaoutlierpercent" : "0.00",
+                  "cbetadeviations" : "1",
+                  "ramafavoredpercent" : 97.89,
+                  "poorrotamers" : 6,
+                  "rmsbonds" : 0.0123,
+                  "rmsangles" : 1.54,
+                  "clashpercentile" : "(percentile: 80.7 N=48931, 1.80A+/-0.25A) ",
+                  "poorrotamerspercent" : 4.51,
+                  "clashscore" : 2.34,
+                  "ramafavored" : "139",
+                  "molprobityscore" : 1.54,
+                  "ramaoutliers" : "0"
+               }
+            },
+            "solutions" : {
+               "1" : {
+                  "closecontacts" : "",
+                  "chain" : "A",
+                  "contactscore" : "0.1",
+                  "ligandstrain" : "10.6",
+                  "poorfit" : "0/34",
+                  "output" : "Hit_00_00_000.pdb",
+                  "correlationcoefficient" : "0.7959",
+                  "rhofitscore" : "-1782.7"
+               }
+            },
+            "postrefinement" : {
+               "cycles" : {
+                  "0" : {
+                     "WilsonB" : "18.84",
+                     "Rfree" : 0.255206,
+                     "MeanB" : "25.54",
+                     "type" : "BUSTER",
+                     "step" : "initial",
+                     "RMSbonds" : 0.00802735,
+                     "RMSangles" : 0.969623,
+                     "R" : 0.209836
+                  },
+                  "2" : {
+                     "R" : 0.201638,
+                     "RMSangles" : 0.978341,
+                     "step" : "final",
+                     "RMSbonds" : 0.00811111,
+                     "MeanB" : "26.41",
+                     "type" : "BUSTER",
+                     "WilsonB" : "18.84",
+                     "Rfree" : 0.247927,
+                     "WatersPresent" : "155"
+                  },
+                  "1" : {
+                     "Rfree" : 0.253958,
+                     "WilsonB" : "18.84",
+                     "step" : "refinement",
+                     "RMSbonds" : 0.00802904,
+                     "MeanB" : "25.89",
+                     "type" : "BUSTER",
+                     "RMSangles" : 0.969742,
+                     "R" : 0.207245
+                  }
+               }
+            },
+            "id" : "1_c617989dstructure"
+         }
+      }
+   },
+   "dataprocessing" : {
+      "datatype" : "images",
+      "referencedata" : {
+         "cell" : {
+            "gamma" : "120.000",
+            "a" : "55.601",
+            "alpha" : "90.000",
+            "b" : "55.601",
+            "beta" : "90.000",
+            "c" : "115.008"
+         },
+         "symmetry" : "154"
+      },
+      "processingtype" : "autoPROC",
+      "processingdata" : {
+         "AutoProcscaling" : {
+            "recordTimeStamp" : "2021-03-17 18:27:53",
+            "resolutionEllipsoidAxis13" : ".00000",
+            "resolutionEllipsoidAxis33" : "1.00000",
+            "resolutionEllipsoidAxis23" : ".00000",
+            "resolutionEllipsoidValue2" : "2.42300",
+            "resolutionEllipsoidAxis21" : ".00000",
+            "resolutionEllipsoidAxis31" : ".00000",
+            "resolutionEllipsoidAxis22" : "1.00000",
+            "resolutionEllipsoidAxis32" : ".00000",
+            "resolutionEllipsoidValue3" : "1.75600",
+            "resolutionEllipsoidAxis12" : ".00000",
+            "resolutionEllipsoidValue1" : "2.42300",
+            "resolutionEllipsoidAxis11" : "1.00000"
+         },
+         "AutoProcScalingStatistics" : {
+            "innerShell" : {
+               "multiplicity" : "8.2",
+               "resolutionLimitLow" : "48.263",
+               "rMeasWithinIPlusIMinus" : ".114",
+               "DanoOverSigDano" : ".640",
+               "completenessSpherical" : "100.0",
+               "nTotalUniqueObservations" : "547",
+               "rMerge" : ".101",
+               "rPimWithinIPlusIMinus" : ".051",
+               "anomalousCompletenessEllipsoidal" : "100.0",
+               "nTotalObservations" : "4474",
+               "completenessEllipsoidal" : "100.0",
+               "anomalousCompleteness" : "100.0",
+               "anomalousMultiplicity" : "4.9",
+               "resolutionLimitHigh" : "6.241",
+               "completeness" : "100.0",
+               "ccHalf" : "0.990",
+               "rPimAllIPlusIMinus" : ".038",
+               "meanIOverSigI" : "15.4",
+               "anomalousCompletenessSpherical" : "100.0",
+               "ccAnomalous" : "-0.081",
+               "rMeasAllIPlusIMinus" : ".108"
+            },
+            "overall" : {
+               "nTotalObservations" : "104256",
+               "completenessEllipsoidal" : "91.2",
+               "anomalousMultiplicity" : "5.3",
+               "anomalousCompleteness" : "90.9",
+               "resolutionLimitHigh" : "1.796",
+               "completeness" : "91.2",
+               "ccHalf" : "0.991",
+               "rPimAllIPlusIMinus" : ".103",
+               "meanIOverSigI" : "6.7",
+               "ccAnomalous" : "-0.035",
+               "anomalousCompletenessSpherical" : "50.0",
+               "rMeasAllIPlusIMinus" : ".328",
+               "resolutionLimitLow" : "48.263",
+               "multiplicity" : "9.9",
+               "rMeasWithinIPlusIMinus" : ".355",
+               "DanoOverSigDano" : ".760",
+               "completenessSpherical" : "52.7",
+               "nTotalUniqueObservations" : "10546",
+               "rMerge" : ".311",
+               "rPimWithinIPlusIMinus" : ".151",
+               "anomalousCompletenessEllipsoidal" : "90.9"
+            },
+            "outerShell" : {
+               "DanoOverSigDano" : ".758",
+               "completenessSpherical" : "8.8",
+               "rMerge" : "1.874",
+               "nTotalUniqueObservations" : "525",
+               "rPimWithinIPlusIMinus" : ".693",
+               "anomalousCompletenessEllipsoidal" : "75.5",
+               "multiplicity" : "13.9",
+               "resolutionLimitLow" : "2.027",
+               "rMeasWithinIPlusIMinus" : "1.965",
+               "ccHalf" : "0.635",
+               "rPimAllIPlusIMinus" : ".513",
+               "meanIOverSigI" : "1.7",
+               "anomalousCompletenessSpherical" : "7.3",
+               "ccAnomalous" : "-0.023",
+               "rMeasAllIPlusIMinus" : "1.945",
+               "nTotalObservations" : "7322",
+               "completenessEllipsoidal" : "76.8",
+               "anomalousCompleteness" : "75.5",
+               "anomalousMultiplicity" : "8.0",
+               "resolutionLimitHigh" : "1.796",
+               "completeness" : "76.8"
+            }
+         },
+         "AutoProc" : {
+            "refinedCell_beta" : "90.000",
+            "refinedCell_b" : "55.729",
+            "wavelength" : ".97856",
+            "refinedCell_a" : "55.729",
+            "refinedCell_alpha" : "90.000",
+            "spaceGroup" : "P 32 2 1",
+            "refinedCell_c" : "115.250",
+            "refinedCell_gamma" : "120.000"
+         }
+      }
+   },
+   "refinement" : {
+      "Cycles" : {
+         "2" : {
+            "R" : 0.219373,
+            "RMSangles" : 0.986999,
+            "RMSbonds" : 0.00849398,
+            "step" : "final",
+            "type" : "BUSTER",
+            "MeanB" : "25.54",
+            "Rfree" : 0.262637,
+            "WilsonB" : "18.84",
+            "WatersPresent" : "121"
+         },
+         "0" : {
+            "WilsonB" : "",
+            "Rfree" : 0.312092,
+            "MeanB" : "",
+            "type" : "BUSTER",
+            "RMSbonds" : 0.0103442,
+            "step" : "initial",
+            "R" : 0.318089,
+            "RMSangles" : 1.03551
+         },
+         "1" : {
+            "R" : 0.263322,
+            "RMSangles" : "0.956230",
+            "type" : "BUSTER",
+            "MeanB" : "21.61",
+            "RMSbonds" : 0.00799684,
+            "step" : "refinement",
+            "WilsonB" : "18.84",
+            "Rfree" : 0.297255
+         },
+         "3" : {
+            "R" : "0.228701",
+            "RMSangles" : "0.971963",
+            "MeanB" : "25.54",
+            "type" : "BUSTER",
+            "RMSbonds" : "0.00794350",
+            "step" : "ligand-detection",
+            "WatersPresent" : "121",
+            "Rfree" : "0.272720",
+            "WilsonB" : "18.84"
+         }
+      },
+      "models" : {
+         "1" : {
+            "number" : 1,
+            "LMRscore" : "33.1",
+            "modelname" : "apo"
+         }
+      },
+      "selectedmodel" : "/crimsXdata/CRIMS-ARCHITECTURE/REFERENCE-MODELS/merck/2020/20201001_proxima1/pded-20201001-px1-894d59aa/pipedream-phenix-raph-0e66e23c/apo_model.pdb",
+      "refinementprotocol" : "Default"
+   }
+}
+

@@ -19,7 +19,7 @@ from api.models.pdbfile_model import PDBFile
 from api.models.mmciffile_model import mmCIFFile
 from api.models.construct_model import Construct
 from api.models.reference_model import Reference
-from api.models.pipedream_model import Pipedream
+from api.models.pipedream_model import GPhLPipedream
 from api.models.pipedream_cmd_options_model import PipedreamCmdOptions
 from api.models.autoproc_cmd_options_model import AutoprocCmdOptions
 from api.models.buster_cmd_options_model import BusterCmdOptions
@@ -51,7 +51,7 @@ class DPStep(StructuredNode):
 	with_autoproc=RelationshipTo(autoPROC, 'WITH')
 	with_rhofit=RelationshipTo(Rhofit, 'WITH')
 	with_buster=RelationshipTo(Buster, 'WITH')
-	with_pipedream=RelationshipTo(Pipedream, 'WITH')
+	with_pipedream=RelationshipTo(GPhLPipedream, 'WITH')
 	
 	genereates_report=RelationshipTo(Report, 'GENERATES')
 	generates_coordinates=RelationshipTo(Coordinates, 'GENERATES')

@@ -4,7 +4,7 @@ from uuid import uuid4
 # Third-party imports
 from neomodel import StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo
 
-class Pipedream(StructuredNode):
+class GPhLPipedream(StructuredNode):
 	
 	"""
 	Defines node properties and relationships
@@ -12,8 +12,14 @@ class Pipedream(StructuredNode):
 	"""
 	
 	# Properties
-	uuid=StringProperty(unique_index=True, default=uuid4)
-	
+	command=StringProperty()
+	jsonversion=StringProperty()
+	runby=StringProperty()
+	runfrom=StringProperty()
+	jobid=StringProperty(unique_index=True, default=uuid4)
+	output=StringProperty()
+	version=StringProperty()
+
 	@property
 	def serialize(self):
 
@@ -22,7 +28,13 @@ class Pipedream(StructuredNode):
 		"""
 		
 		return {
-		'pipedream_node_properties': {
-		'uuid': self.uuid,
+		'GPhL_pipedream_node_properties': {
+		'command': self.command,
+		'jsonversion': self.jsonversion,
+		'runby': self.runby,
+		'runfrom': self.runfrom,
+		'jobid': self.uuid,
+		'output': self.output,
+		'version': self.version,
 		},
 		}

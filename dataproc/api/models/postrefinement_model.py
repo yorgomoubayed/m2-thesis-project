@@ -13,10 +13,15 @@ class PostRefinement(StructuredNode):
 
 	# Properties
 	uuid=StringProperty(unique_index=True, default=uuid4)
-	dp_step_name=StringProperty()
-	pipedream_id=IntegerProperty()
-	created_at=DateTimeProperty()
-	updated_at=DateTimeProperty()
+	WilsonB=StringProperty()
+	Rfree=IntegerProperty()
+	MeanB=StringProperty()
+	type=StringProperty()
+	step=StringProperty()
+	RMSbonds=IntegerProperty()
+	RMSangles=IntegerProperty()
+	R=IntegerProperty()
+	WatersPresent=StringProperty()
 
 	@property
 	def serialize(self):
@@ -25,11 +30,17 @@ class PostRefinement(StructuredNode):
 		Serializer for node properties
 		"""
 		return {
-		'node_properties': {
+		'postrefinement_node_properties': {
 		'uuid': self.uuid,
-		'dp_step_name': self.dp_step_name,
-		'pipedream_id': self.pipedream_id,
-		'created_at': self.created_at,
-		'updated_at': self.updated_at,
+		'WilsonB': self.WilsonB,
+		'Rfree': self.Rfree,
+		'MeanB': self.MeanB,
+		'type': self.type,
+		'step': self.step,
+		'RMSbonds': self.RMSbonds,
+		'RMSangles': self.RMSangles,
+		'R': self.R,
+		'WatersPresent': self.WatersPresent,
 		},
 		}
+

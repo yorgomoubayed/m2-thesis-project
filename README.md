@@ -72,7 +72,7 @@ python3 manage.py createcachetable
 
 Run tests
 ~~~
-python3 manage.py test <option test module name>
+python3 manage.py test <optional test module name>
 ~~~
 
 Apply constraints and indexes on labels for the node definitions. This should be executed after any schema changes

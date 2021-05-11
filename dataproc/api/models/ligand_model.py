@@ -16,6 +16,7 @@ class Ligand(StructuredNode):
 
 	# Properties
 	uuid=StringProperty(unique_index=True, default=uuid4)
+	id=StringProperty()
 	ligandomin=StringProperty()
 	mogulzbond=StringProperty()
 	ligandbmin=StringProperty()
@@ -57,6 +58,7 @@ class Ligand(StructuredNode):
 
 		'ligand_node_properties': {
 		'uuid': self.uuid,
+		'id': self.id,
 		'ligandomin': self.ligandomin,
 		'mogulzbond': self.mogulzbond,
 		'ligandbmin': self.ligandbmin,

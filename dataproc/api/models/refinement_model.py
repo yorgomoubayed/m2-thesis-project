@@ -22,6 +22,8 @@ class Refinement(StructuredNode):
 	RMSangles=IntegerProperty()
 	R=IntegerProperty()
 	WatersPresent=StringProperty()
+	selectedmodel=StringProperty()
+	refinementprotocol=StringProperty()
 
 	@property
 	def serialize(self):
@@ -41,6 +43,8 @@ class Refinement(StructuredNode):
 		'RMSangles': self.RMSangles,
 		'R': self.R,
 		'WatersPresent': self.WatersPresent,
+		'selectedmodel': self.selectedmodel,
+		'refinementprotocol': self.refinementprotocol,
 		},
 		}
 

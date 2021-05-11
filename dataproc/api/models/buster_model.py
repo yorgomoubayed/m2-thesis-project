@@ -14,7 +14,6 @@ class Buster(StructuredNode):
 	# Properties
 	uuid=StringProperty(unique_index=True, default=uuid4)
 
-
 	@property
 	def serialize(self):
 

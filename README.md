@@ -37,47 +37,52 @@ django-admin.py startproject <project name>
 
 Create an application inside a project
 ~~~
-python manage.py <app name>
+python3 manage.py <app name>
 ~~~
 
 Apply migrations
 ~~~
-python manage.py migrate
+python3 manage.py migrate
 ~~~
 
 Create new migrations based on the changes made to the models
 ~~~
-python manage.py makemigrations
+python3 manage.py makemigrations
 ~~~
 
 Open a python shell to test query sets
 ~~~
-python manage.py shell
+python3 manage.py shell
 ~~~
 
 Run an emulated server on the local machine
 ~~~
-python manage.py runserver <optional port number>
+python3 manage.py runserver <optional port number>
 ~~~
 
 Create a super user to access the admin panel
 ~~~
-python manage.py createsuperuser
+python3 manage.py createsuperuser
 ~~~
 
 Create a cache table 
 ~~~
-python manage.py createcachetable
+python3 manage.py createcachetable
+~~~
+
+Run tests
+~~~
+python3 manage.py test <option test module name>
 ~~~
 
 Apply constraints and indexes on labels for the node definitions. This should be executed after any schema changes
 ~~~
-python manage.py install_labels 
+python3 manage.py install_labels
 ~~~
 
 Delete all nodes in the database.
 ~~~
-python manage.py clear_neo4j
+python3 manage.py clear_neo4j
 ~~~
 
 ## Links to documentations

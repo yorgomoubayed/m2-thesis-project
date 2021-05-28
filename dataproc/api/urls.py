@@ -35,10 +35,12 @@ from api.views.summaryout_view import *
 from api.views.user_view import *
 from api.views.relationships_view import *
 from api.views.input_view import *
+from api.views.proc_input_view import *
 
 urlpatterns = [
-	
+
     path('storeInput', storeInput, name="store_input"),
+    path('storeProcInput', storeProcInput, name="store_proc_input"),
 
     # # autoPROC urlpatterns
     # path('indexautoPROC', indexautoPROC),
@@ -55,18 +57,18 @@ urlpatterns = [
     # path('destroyBuster', destroyBuster),
 
     # computationhost urlpatterns
-    path('indexComputationhost', indexComputationhost),
-    path('showComputationhost', showComputationhost),
-    path('storeComputationhost', storeComputationhost),
-    path('updateComputationhost', updateComputationhost),
-    path('destroyComputationhost', destroyComputationhost),
+    # path('indexComputationhost', indexComputationhost),
+    # path('showComputationhost', showComputationhost),
+    # path('storeComputationhost', storeComputationhost),
+    # path('updateComputationhost', updateComputationhost),
+    # path('destroyComputationhost', destroyComputationhost),
 
     # construct urlpatterns
-    path('indexConstruct', indexConstruct),
-    path('showConstruct', showConstruct),
-    path('storeConstruct', storeConstruct),
-    path('updateConstruct', updateConstruct),
-    path('destroyConstruct', destroyConstruct),
+    # path('indexConstruct', indexConstruct),
+    # path('showConstruct', showConstruct),
+    # path('storeConstruct', storeConstruct),
+    # path('updateConstruct', updateConstruct),
+    # path('destroyConstruct', destroyConstruct),
     
     # # coordinates urlpatterns
     # path('indexCoordinates', indexCoordinates),
@@ -248,4 +250,4 @@ urlpatterns = [
 
     # relationships urlspatterns for ligands
     path('connectLigandDataset', connectLigandDataset),
-]
+    ]

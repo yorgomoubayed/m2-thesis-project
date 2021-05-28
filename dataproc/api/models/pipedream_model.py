@@ -12,13 +12,13 @@ class GPhLPipedream(StructuredNode):
 	"""
 	
 	# Properties
-	command=StringProperty()
-	jsonversion=StringProperty()
-	runby=StringProperty()
-	runfrom=StringProperty()
+	command=StringProperty(max_length=500)
+	jsonversion=StringProperty(max_length=500)
+	runby=StringProperty(max_length=500)
+	runfrom=StringProperty(max_length=500)
 	jobid=StringProperty(unique_index=True, default=uuid4)
-	output=StringProperty()
-	version=StringProperty()
+	output=StringProperty(max_length=500)
+	version=StringProperty(max_length=500)
 
 	@property
 	def serialize(self):
@@ -33,7 +33,7 @@ class GPhLPipedream(StructuredNode):
 		'jsonversion': self.jsonversion,
 		'runby': self.runby,
 		'runfrom': self.runfrom,
-		'jobid': self.uuid,
+		'jobid': self.jobid,
 		'output': self.output,
 		'version': self.version,
 		},

@@ -13,17 +13,6 @@ class Refinement(StructuredNode):
 
 	# Properties
 	uuid=StringProperty(unique_index=True, default=uuid4)
-	WilsonB=StringProperty()
-	Rfree=IntegerProperty()
-	MeanB=StringProperty()
-	type=StringProperty()
-	step=StringProperty()
-	RMSbonds=IntegerProperty()
-	RMSangles=IntegerProperty()
-	R=IntegerProperty()
-	WatersPresent=StringProperty()
-	selectedmodel=StringProperty()
-	refinementprotocol=StringProperty()
 
 	@property
 	def serialize(self):
@@ -34,17 +23,6 @@ class Refinement(StructuredNode):
 		return {
 		'postrefinement_node_properties': {
 		'uuid': self.uuid,
-		'WilsonB': self.WilsonB,
-		'Rfree': self.Rfree,
-		'MeanB': self.MeanB,
-		'type': self.type,
-		'step': self.step,
-		'RMSbonds': self.RMSbonds,
-		'RMSangles': self.RMSangles,
-		'R': self.R,
-		'WatersPresent': self.WatersPresent,
-		'selectedmodel': self.selectedmodel,
-		'refinementprotocol': self.refinementprotocol,
 		},
 		}
 
